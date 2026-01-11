@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PCOD Doctor Care | CareHer</title>
+  <link rel="stylesheet" href="pcod-doctor.css">
+</head>
+
+<body>
+
+<header class="header">
+  <h1>👩‍⚕️ PCOD Doctor Care</h1>
+  <p>Trusted • Confidential • Women-Centered Care</p>
+</header>
+
+<section class="container">
+
+  <!-- ABOUT -->
+  <div class="card">
+    <h2>🌸 What is PCOD?</h2>
+    <p>
+      PCOD (Polycystic Ovarian Disease) is a hormonal condition where ovaries
+      release immature eggs leading to cyst formation. Early care helps manage
+      symptoms effectively.
+    </p>
+  </div>
+
+  <!-- SYMPTOMS -->
+  <div class="card">
+    <h2>⚠ Common PCOD Symptoms</h2>
+    <ul>
+      <li>Irregular or missed periods</li>
+      <li>Pelvic pain & cramps</li>
+      <li>Weight gain</li>
+      <li>Acne & oily skin</li>
+      <li>Hair fall or facial hair</li>
+      <li>Mood swings</li>
+    </ul>
+  </div>
+
+  <!-- DOCTOR ROLE -->
+  <div class="card">
+    <h2>🩺 Doctor’s Role</h2>
+    <p>
+      A gynecologist helps diagnose PCOD, manage symptoms,
+      regulate periods, improve fertility, and guide lifestyle changes.
+    </p>
+  </div>
+
+  <!-- DIAGNOSIS -->
+  <div class="card">
+    <h2>🧪 Diagnosis & Tests</h2>
+    <ul>
+      <li>Pelvic ultrasound</li>
+      <li>Hormonal blood tests</li>
+      <li>Blood sugar & insulin test</li>
+      <li>Thyroid profile</li>
+    </ul>
+  </div>
+
+  <!-- TREATMENT -->
+  <div class="card">
+    <h2>💊 Treatment Options</h2>
+    <ul>
+      <li>Period regulation</li>
+      <li>Pain & cramp relief</li>
+      <li>Hormonal balance</li>
+      <li>Skin & hair treatment</li>
+      <li>Weight management</li>
+    </ul>
+    <p class="warn">⚠ Medicines only under doctor guidance.</p>
+  </div>
+
+  <!-- LIFESTYLE -->
+  <div class="card">
+    <h2>🥗 Diet & Lifestyle Advice</h2>
+    <ul>
+      <li>Low sugar & balanced diet</li>
+      <li>Regular exercise & yoga</li>
+      <li>Stress management</li>
+      <li>Quality sleep</li>
+    </ul>
+  </div>
+
+  <!-- FERTILITY -->
+  <div class="card">
+    <h2>🤍 Fertility & Pregnancy Care</h2>
+    <p>
+      PCOD is manageable. With proper treatment, many women
+      conceive naturally with medical support.
+    </p>
+  </div>
+
+  <!-- MENTAL HEALTH -->
+  <div class="card">
+    <h2>🧠 Mental & Emotional Support</h2>
+    <p>
+      PCOD can affect emotional health. Counseling and support
+      help reduce anxiety, stress, and mood changes.
+    </p>
+  </div>
+
+  <!-- APPOINTMENT -->
+  <div class="card center">
+    <h2>📅 Book Doctor Appointment</h2>
+    <button onclick="bookAppointment()">Book Appointment</button>
+    <button class="chat" onclick="openChat()">Chat With Doctor</button>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 CareHer | Women’s PCOD Healthcare Support
+</footer>
+<!-- CHATBOT -->
+<div id="chatbot">
+  <div class="chat-header">
+    PCOD Doctor Assistant
+    <span onclick="openChat()">✖</span>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="bot">Hello 🌸 How can I help you today?</div>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask your question...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script src="pcod-doctor.js"></script>
+</body>
+</html>
+
