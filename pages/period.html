@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <title>NurtureHer-Period Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="../css/period.css"/>
+  <script src="../js/period.js" defer></script>
 
 </head>
 
@@ -66,7 +67,12 @@
       </select>
     </div>
   </div>
+<button onclick="calculateCycle()">Calculate Cycle</button>
 
+  <div class="results" id="results"></div>
+  <button id="regularityButton" style="display:none;"></button>
+  <div class="calendar" id="calendar"></div>
+</div>
   
 
 </body>
