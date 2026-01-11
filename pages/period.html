@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NurtureHer-Period Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="../images/logo.png" alt="logo" class="nav-logo">
+    <span class="nav-name">NurtureHer</span>
+  </div>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="#">Dashboard</a>
+    <a href="#">Health Check</a>
+    <a href="#">Reviews</a>
+    <a href="#">Login</a>
+  </div>
+</nav>
+
+<div class="dashboard-container">
+  <h2>Period Tracking Dashboard</h2>
+
+  <div class="input-section">
+    <div>
+      <label>Age</label>
+      <input type="number" id="age" min="10" max="60" placeholder="Enter your age">
+    </div>
+
+    <div>
+      <label>First Day of Last Period</label>
+      <input type="date" id="lastPeriod">
+    </div>
+
+    <div>
+      <label>Cycle Length (days)</label>
+      <input type="number" id="cycleLength" value="28">
+    </div>
+
+    <div>
+      <label>Period Duration (days)</label>
+      <input type="number" id="periodDuration" value="5">
+    </div>
+
+    <div>
+      <label>Flow Intensity</label>
+      <select id="flowIntensity">
+        <option value="None">Select Flow</option>
+        <option value="Light">Light</option>
+        <option value="Medium">Medium</option>
+        <option value="Heavy">Heavy</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Mood Swings</label>
+      <select id="moodSwings">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+    </div>
+  </div>
+
+  
+
+</body>
+</html>
