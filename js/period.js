@@ -27,11 +27,11 @@ function calculateCycle() {
 
   let regularity = "Regular";
   let buttonClass = "regular";
-  let targetPage = "x.html";
+  let targetPage = "regular.html";
   if (cycleLength < 21 || cycleLength > 35) {
     regularity = "Irregular";
     buttonClass = "irregular";
-    targetPage = "y.html";
+    targetPage = "irregular.html";
   }
 
   // Show results
