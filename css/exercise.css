@@ -35,3 +35,31 @@
     display: flex;
     justify-content: center;
 }
+.exe-flashcard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: fixed;
+    border: 2px solid black;
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.exe-flashcard-img {
+    width: 250px;
+    border-radius: 30px;
+    margin: 7px;
+}
+.benefits {
+    padding: 20px;
+}
+
+.cancel {
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
