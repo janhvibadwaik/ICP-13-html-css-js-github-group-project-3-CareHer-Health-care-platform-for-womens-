@@ -60,3 +60,26 @@ body {
   border: 2px solid #c93779;
   cursor: pointer;
 }
+
+.nav-clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c93779;
+  line-height: 1.3;
+}
+
+
+#dateSpan {
+  font-size: 13px;
+}
+
+
+#timeSpan {
+  font-size: 14px;
+  font-weight: 700;
+  color: #a81f5a;
+}
