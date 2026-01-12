@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BMI Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff90c7;
+      color: black;
+      transition: 0.3s;
+      margin: 0;
+    }
+
+    body.light-mode {
+      background: #c4437d;
+      color: black;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      background-color: black;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+
+    .bmi-container {
+      background: #ffa6ca;
+      padding: 25px;
+      border-radius: 12px;
+      width: 400px;
+      height: 300px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    body.light-mode .bmi-container {
+      background: #c42c70;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .calculate-btn {
+      background: #4caf50;
+      color: white;
+    }
+
+    .reset-btn {
+      background: #f44336;
+      color: white;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    img {
+      margin-top: 10px;
+      max-width: 100px;
+      display: none;
+    }
+
+    /* Floating Chatbot Styles */
+    .floating-chatbot {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-size: 13px;
+      z-index: 1000;
+    }
+
+    .chat-header {
+      background: #c42c70;
+      color: #fff;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background: #f7f7f7;
+    }
+
+    .chat-messages div {
+      margin-bottom: 6px;
+    }
+
+    .bot {
+      color: #c42c70;
+      font-weight: bold;
+    }
+
+    .user {
+      text-align: right;
+      color: #333;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+      background: #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .chat-input button {
+      background: #c42c70;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50px;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+<div class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</div>
+
+<!-- BMI Container -->
+<div class="bmi-container">
+  <h2>Calculate Your BMI  Here!...</h2>
+  <br>
+  <label>Weight (kg)</label>
+  <input type="number" id="weight"><br><br>
+  <label>Height (cm)</label>
+  <input type="number" id="height">
+  <br><br>
+  <div class="btn-group">
+    <button class="calculate-btn" onclick="calculateBMI()">Calculate</button>
+    <button class="reset-btn" onclick="resetBMI()">Reset</button>
+  </div>
+
+  <div class="result" id="result"></div>
+  <img id="bmiImage">
+</div>
+
+<!-- Floating Chatbot -->
+<div class="floating-chatbot" id="floatingChat">
+  <div class="chat-header" onclick="toggleChat()">👩‍⚕️ Women's BMI Assistant</div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="bot">Hi! Ask me about BMI, diet, exercise, or periods info .</div>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask something...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  // BMI Calculator
+  const weightInput = document.getElementById("weight");
+  const heightInput = document.getElementById("height");
+  const result = document.getElementById("result");
+
+  function calculateBMI() {
+    const weight = parseFloat(weightInput.value);
+    const height = parseFloat(heightInput.value);
+
+    if (!weight || !height) {
+      result.textContent = "Please enter valid values.";
+      return;
+    }
+
+    const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
+    let category = "";
+
+    if (bmi < 18.5) category = "Underweight";
+    else if (bmi < 24.9) category = "Normal";
+    else if (bmi < 29.9) category = "Overweight";
+    else category = "Obese";
+
+    result.textContent = `Your BMI is ${bmi} (${category})`;
+  }
+
+  function resetBMI() {
+    weightInput.value = "";
+    heightInput.value = "";
+    result.textContent = "";
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+  }
+
+  // Chatbot Logic
+  const chatMessages = document.getElementById("chatMessages");
+  const chatInput = document.getElementById("chatInput");
+
+  function sendMessage() {
+    const userText = chatInput.value.trim();
+    if (!userText) return;
+
+    chatMessages.innerHTML += `<div class="user">${userText}</div>`;
+    chatInput.value = "";
+
+    let reply = "I'm here to help women understand BMI better 💕";
+    const msg = userText.toLowerCase();
+
+    if (msg.includes("underweight"))
+      reply = "Being underweight can affect hormones and fertility. Focus on nutritious meals and strength training.";
+    else if (msg.includes("normal"))
+      reply = "Great! A normal BMI supports healthy hormones, energy, and heart health.";
+    else if (msg.includes("overweight"))
+      reply = "Light exercise, balanced diet, and stress control help women manage weight safely.";
+    else if (msg.includes("obese"))
+      reply = "Gradual lifestyle changes and medical advice can greatly improve women's health.";
+    else if (msg.includes("diet"))
+      reply = "Women should focus on iron, calcium, protein, fruits, and vegetables.";
+    else if (msg.includes("exercise"))
+      reply = "Yoga, walking, strength training, and cardio are great for women.";
+    else if (msg.includes("periods"))
+      reply = "BMI before periods matters. Always consult a doctor for personalized advice.";
+
+    setTimeout(() => {
+      chatMessages.innerHTML += `<div class="bot">👩‍⚕️ ${reply}</div>`;
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 500);
+  }
+
+  function toggleChat() {
+    const chatBox = document.getElementById("floatingChat");
+    const messages = chatBox.querySelector(".chat-messages");
+    const input = chatBox.querySelector(".chat-input");
+    if (messages.style.display === "none") {
+      messages.style.display = "block";
+      input.style.display = "flex";
+    } else {
+      messages.style.display = "none";
+      input.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
