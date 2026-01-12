@@ -74,3 +74,13 @@ function calculateCycle() {
     `;
   }
 }
+
+function toggleChatbot() {
+  const chatbot = document.getElementById("chatbot-popup");
+
+  if (chatbot.style.display === "none" || chatbot.style.display === "") {
+    chatbot.style.display = "block";
+  } else {
+    chatbot.style.display = "none";
+  }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CareHer Chatbot</title>
+
+<style>
+/* RESET */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+/* CHATBOT CARD */
+.chat-container {
+  width: 380px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 15px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  overflow: hidden; /* 🔥 important */
+}
+
+/* HEADER */
+.chat-container h2 {
+  margin: 0 0 8px 0;
+  text-align: center;
+  color: #c2185b;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* CHAT MESSAGES AREA */
+.chat-box {
+  flex: 1;                 /* 🔥 takes remaining height */
+  overflow-y: auto;        /* 🔥 only messages scroll */
+  padding: 8px;
+  background: #ffffff;
+}
+
+/* MESSAGE BUBBLES */
+.bot {
+  background: #f2f2f2;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin: 6px 0;
+  max-width: 85%;
+}
+
+.user {
+  background: #e0e0e0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin: 6px 0;
+  margin-left: auto;
+  max-width: 85%;
+  text-align: right;
+}
+
+/* INPUT FIXED AT BOTTOM */
+.input-row {
+  display: flex;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;          /* 🔥 never scrolls */
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #c2185b;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a3154d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="chat-container">
+  <h2>🤖 CareHer Chatbot</h2>
+
+  <div id="chatBox" class="chat-box">
+    <div class="bot">Hi 👋 Type <b>Hi</b> to start</div>
+  </div>
+
+  <div class="input-row">
+    <input id="userInput" placeholder="Type here..."
+      onkeydown="if(event.key==='Enter') sendMessage()">
+    <button onclick="sendMessage()">›</button>
+  </div>
+</div>
+
+<script>
+let chatBox = document.getElementById("chatBox");
+let userName = "";
+let askingName = false;
+
+const keywordData = [
+  { key: "period", reply: "Periods are a natural monthly cycle. Normal length is 21–35 days." },
+  { key: "menostart", reply: "Menarche usually starts between 9–15 years." },
+  { key: "menopause", reply: "Menopause happens between 45–55 years." },
+  { key: "food", reply: "Eat fruits, leafy vegetables and iron-rich foods." },
+  { key: "diet", reply: "Balanced diet with iron and protein helps." },
+  { key: "exercise", reply: "Yoga and walking reduce cramps." },
+  { key: "products", reply: "Pads, tampons, menstrual cups and period panties." }
+];
+
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const text = input.value.trim();
+  if (!text) return;
+
+  chatBox.innerHTML += `<div class="user">${text}</div>`;
+  input.value = "";
+  scrollDown();
+
+  showTyping();
+  setTimeout(() => {
+    removeTyping();
+    processMessage(text.toLowerCase());
+  }, 900);
+}
+
+function processMessage(message) {
+  if (message === "hi" || message === "hello") {
+    botReply("Hello 😊 What is your good name?");
+    askingName = true;
+    return;
+  }
+
+  if (askingName) {
+    userName = message;
+    askingName = false;
+    botReply(`Nice to meet you, ${userName} 💕<br>How can I help you?`);
+    return;
+  }
+
+  for (let data of keywordData) {
+    if (message.includes(data.key)) {
+      botReply(data.reply);
+      return;
+    }
+  }
+
+  botReply("Ask me about periods, menopause, diet, exercise or products 💗");
+}
+
+function botReply(text) {
+  chatBox.innerHTML += `<div class="bot">${text}</div>`;
+  scrollDown();
+}
+
+function showTyping() {
+  chatBox.innerHTML += `<div class="bot" id="typing">Typing...</div>`;
+  scrollDown();
+}
+
+function removeTyping() {
+  const typing = document.getElementById("typing");
+  if (typing) typing.remove();
+}
+
+function scrollDown() {
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+</script>
+
+</body>
+</html>
