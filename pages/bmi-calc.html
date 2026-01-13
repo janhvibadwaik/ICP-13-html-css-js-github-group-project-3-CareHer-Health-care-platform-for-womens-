@@ -36,7 +36,6 @@
       padding: 25px;
       border-radius: 12px;
       width: 400px;
-      height: auto;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
 
@@ -76,10 +75,6 @@
       margin-top: 12px;
       font-weight: bold;
       line-height: 1.5;
-    }
-
-    .result a {
-      text-decoration: none;
     }
 
     /* Floating Chatbot */
@@ -150,7 +145,7 @@
   </style>
 </head>
 
-<body class="dark-mode">
+<body>
 
 <div class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</div>
 
@@ -173,7 +168,7 @@
 </div>
 
 <!-- Floating Chatbot -->
-<div class="floating-chatbot" id="floatingChat">
+<div class="floating-chatbot">
   <div class="chat-header" onclick="toggleChat()">👩‍⚕️ Women's BMI Assistant</div>
   <div class="chat-messages" id="chatMessages">
     <div class="bot">Hi! Ask me about BMI, diet, exercise, or periods info.</div>
@@ -204,32 +199,21 @@
 
     if (bmi < 18.5) {
       category = "Underweight";
-      link = `
-        <br>
-        <a href="bmi-gain.html" target="_blank" style="color:#2e7d32;">
-          👉 View Weight Gain Products
-        </a>
-      `;
+      link = `<br><a href="bmi-gain.html" target="_blank" style="color:#2e7d32;">
+              👉 View Weight Gain Products</a>`;
     } 
     else if (bmi < 24.9) {
       category = "Normal";
     } 
     else if (bmi < 29.9) {
       category = "Overweight";
-        <br>
-        <a href="bmi-loss.html" target="_blank" style="color:#c62828;">
-          👉 View Weight Loss Products
-        </a>
-      `;
+      link = `<br><a href="bmi-loss.html" target="_blank" style="color:#c62828;">
+              👉 View Weight Loss Products</a>`;
     } 
     else {
       category = "Obese";
-      link = `
-        <br>
-        <a href="bmi-loss.html" target="_blank" style="color:#c62828;">
-          👉 View Weight Loss Products
-        </a>
-      `;
+      link = `<br><a href="bmi-loss.html" target="_blank" style="color:#c62828;">
+              👉 View Weight Loss Products</a>`;
     }
 
     result.innerHTML = `Your BMI is ${bmi} (${category}) ${link}`;
@@ -258,20 +242,13 @@
     let reply = "I'm here to help women understand BMI better 💕";
     const msg = userText.toLowerCase();
 
-    if (msg.includes("underweight"))
-      reply = "Being underweight can affect hormones and fertility.";
-    else if (msg.includes("normal"))
-      reply = "A normal BMI supports good overall health.";
-    else if (msg.includes("overweight"))
-      reply = "Balanced diet and light exercise help manage weight.";
-    else if (msg.includes("obese"))
-      reply = "Gradual lifestyle changes improve long-term health.";
-    else if (msg.includes("diet"))
-      reply = "Focus on iron, calcium, protein, fruits, and vegetables.";
-    else if (msg.includes("exercise"))
-      reply = "Walking, yoga, and strength training are great options.";
-    else if (msg.includes("periods"))
-      reply = "BMI can affect menstrual health. Consult a doctor.";
+    if (msg.includes("underweight")) reply = "Being underweight can affect hormones and fertility.";
+    else if (msg.includes("normal")) reply = "A normal BMI supports good overall health.";
+    else if (msg.includes("overweight")) reply = "Balanced diet and light exercise help manage weight.";
+    else if (msg.includes("obese")) reply = "Gradual lifestyle changes improve long-term health.";
+    else if (msg.includes("diet")) reply = "Focus on iron, calcium, protein, fruits, and vegetables.";
+    else if (msg.includes("exercise")) reply = "Walking, yoga, and strength training are great options.";
+    else if (msg.includes("periods")) reply = "BMI can affect menstrual health. Consult a doctor.";
 
     setTimeout(() => {
       chatMessages.innerHTML += `<div class="bot">👩‍⚕️ ${reply}</div>`;
@@ -282,10 +259,9 @@
   function toggleChat() {
     const messages = document.querySelector(".chat-messages");
     const input = document.querySelector(".chat-input");
-
-    const isHidden = messages.style.display === "none";
-    messages.style.display = isHidden ? "block" : "none";
-    input.style.display = isHidden ? "flex" : "none";
+    const hidden = messages.style.display === "none";
+    messages.style.display = hidden ? "block" : "none";
+    input.style.display = hidden ? "flex" : "none";
   }
 </script>
 
