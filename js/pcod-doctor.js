@@ -1,6 +1,6 @@
 function bookAppointment() {
   console.log("📅 Book Appointment clicked");
-  window.location.href = "pages/appointment.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\appointment.html";
 }
 
 // ================= CHAT TOGGLE =================

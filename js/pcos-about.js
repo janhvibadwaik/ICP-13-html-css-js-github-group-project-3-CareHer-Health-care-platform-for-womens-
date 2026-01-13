@@ -96,5 +96,5 @@ function showResult() {
 // ================= REDIRECT FUNCTION =================
 function goToRiskPage() {
   console.log("Redirecting to PCOS Risk Page...");
-  window.location.href = "pages/pcos-risk.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcos-about.html";
 }

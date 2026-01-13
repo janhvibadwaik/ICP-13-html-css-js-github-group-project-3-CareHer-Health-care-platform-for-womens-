@@ -92,5 +92,5 @@ function showResult() {
 
 // ================= REDIRECT FUNCTION =================
 function goToRiskPage() {
-  window.location.href = "pages/pcod-risk.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcod-risk.html";
 }

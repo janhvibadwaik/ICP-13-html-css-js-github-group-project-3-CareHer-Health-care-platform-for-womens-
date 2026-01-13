@@ -137,17 +137,17 @@ function restartQuiz() {
 
 function openProducts() {
   console.log("🛒 Opening PCOS Products page");
-  window.location.href = "pages/pcos-products.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcos-products.html";
 }
 
 function openDoctor() {
   console.log("👩‍⚕️ Opening PCOS Doctor page");
-  window.location.href = "pages/pcos-doctor.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcos-doctor.html";
 }
 
 function openDiet() {
   console.log("🥗 Opening PCOS Diet & Lifestyle page");
-  window.location.href = "pages/pcos-diet-lifestyle.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcos-diet-lifestyle.html";
 }
 
 // ================= CHATBOT =================

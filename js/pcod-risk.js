@@ -135,17 +135,17 @@ function restartQuiz() {
 
 function openProducts() {
   console.log("🛒 Opening PCOD Products page");
-  window.location.href = "pages/pcod-products.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcod-products.html";
 }
 
 function openDoctor() {
   console.log("👩‍⚕️ Opening Doctor page");
-  window.location.href = "pages/pcod-doctor.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcod-doctor.html";
 }
 
 function openDiet() {
   console.log("🥗 Opening Diet & Lifestyle page");
-  window.location.href = "pages/pcod-diet-lifestyle.html";
+  window.location.href = "C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\pcod-diet-lifestyle.html";
 }
 
 // ================= CHATBOT =================
