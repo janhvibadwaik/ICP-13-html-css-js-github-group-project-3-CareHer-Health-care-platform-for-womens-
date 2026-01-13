@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Doctor Appointment – NurtureHer</title>
+<link rel="stylesheet" href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\css\appointment.css">
+</head>
+
+<body>
+
+<header>
+  <h1>👩‍⚕️ Book Doctor Appointment</h1>
+  <p>Safe • Private • Supportive Care</p>
+</header>
+
+<section class="card">
+  <h2>Patient Details</h2>
+
+  <form id="appointmentForm">
+
+    <label>Full Name</label>
+    <input type="text" id="name" required>
+
+    <label>Email Address</label>
+    <input type="email" id="email" required>
+
+    <label>Age</label>
+    <input type="number" id="age" min="12" max="60" required>
+
+    <label>Select Doctor</label>
+    <select id="doctor" required>
+      <option value="">-- Choose Specialist --</option>
+      <option>Gynecologist</option>
+      <option>Endocrinologist</option>
+      <option>Nutritionist</option>
+      <option>PCOD Wellness Expert</option>
+    </select>
+
+    <label>Appointment Date</label>
+    <input type="date" id="date" required>
+
+    <label>Preferred Time</label>
+    <select id="time" required>
+      <option value="">-- Select Time --</option>
+      <option>10:00 AM</option>
+      <option>12:00 PM</option>
+      <option>3:00 PM</option>
+      <option>6:00 PM</option>
+    </select>
+
+    <label>PCOD/PCOS Symptoms (Select all that apply)</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox"> Irregular periods</label>
+      <label><input type="checkbox"> Acne</label>
+      <label><input type="checkbox"> Weight gain</label>
+      <label><input type="checkbox"> Hair fall</label>
+      <label><input type="checkbox"> Mood swings</label>
+    </div>
+
+    <label>Describe Your Symptoms</label>
+    <textarea id="symptoms" rows="4"></textarea>
+
+    <button type="submit">Book Appointment</button>
+
+  </form>
+
+  <p class="note">
+    🔒 Your information is private and confidential.
+  </p>
+
+  <div id="successMsg" class="success hidden">
+    ✅ Appointment booked successfully!  
+    Our team will contact you shortly.
+  </div>
+</section>
+
+<footer>
+  © 2026 CareHer | Women’s Healthcare Support
+</footer>
+
+<script src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\js\appointment.js"></script>
+</body>
+</html>
