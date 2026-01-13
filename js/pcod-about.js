@@ -16,7 +16,7 @@ const questions = [
 let current = 0;
 let score = 0;
 
-// ================= ELEMENTS =================
+// ================= ELEMENTS (SAFE) =================
 const questionEl = document.getElementById("quizQuestion");
 const progressEl = document.getElementById("quizProgress");
 const progressBar = document.getElementById("progressBar");
@@ -24,25 +24,24 @@ const quizCard = document.getElementById("quizCard");
 const resultEl = document.getElementById("quizResult");
 
 // ================= LOAD QUESTION =================
+if (questionEl && progressEl && progressBar) {
+  loadQuestion();
+}
+
 function loadQuestion() {
+  if (!questions[current]) return;
+
   questionEl.innerText = questions[current];
   progressEl.innerText = `Question ${current + 1} of ${questions.length}`;
   progressBar.style.width = (current / questions.length) * 100 + "%";
-
-  console.log(`📘 Loaded Question ${current + 1}:`, questions[current]);
 }
-
-// Initial load
-loadQuestion();
 
 // ================= ANSWER HANDLER =================
 function answer(isYes) {
-  console.log("📝 User answered:", isYes ? "YES" : "NO");
+  if (!questionEl) return;
 
   if (isYes) score++;
-
   current++;
-  console.log("📊 Current Score:", score);
 
   if (current < questions.length) {
     loadQuestion();
@@ -53,9 +52,9 @@ function answer(isYes) {
 
 // ================= SHOW RESULT =================
 function showResult() {
-  progressBar.style.width = "100%";
-  quizCard.style.display = "none";
-  progressEl.style.display = "none";
+  if (progressBar) progressBar.style.width = "100%";
+  if (quizCard) quizCard.style.display = "none";
+  if (progressEl) progressEl.style.display = "none";
 
   let risk = "";
   let message = "";
@@ -73,32 +72,25 @@ function showResult() {
     message = "Strong indicators of PCOD detected. Please consult a gynecologist or endocrinologist.";
   }
 
-  // ================= SAVE DATA TO LOCAL STORAGE =================
+  // ================= SAVE DATA =================
   localStorage.setItem("pcodRisk", risk);
   localStorage.setItem("pcodScore", score);
 
-  console.log("💾 Data saved to LocalStorage");
-  console.log("Stored PCOD Risk:", localStorage.getItem("pcodRisk"));
-  console.log("Stored PCOD Score:", localStorage.getItem("pcodScore"));
-
-  console.log("=== ✅ QUIZ COMPLETED ===");
-  console.log("Final Score:", score);
-  console.log("PCOD Risk Level:", risk);
-
   // ================= RESULT UI =================
-  resultEl.classList.remove("hidden");
-  resultEl.innerHTML = `
-    <h3>🌸 PCOD Assessment Completed</h3>
-    <p>${message}</p>
-    <p><strong>Your Score:</strong> ${score}/${questions.length}</p>
-    <button onclick="goToRiskPage()">
-      ➡ Check Your PCOD Risk Level
-    </button>
-  `;
+  if (resultEl) {
+    resultEl.classList.remove("hidden");
+    resultEl.innerHTML = `
+      <h3>🌸 PCOD Assessment Completed</h3>
+      <p>${message}</p>
+      <p><strong>Your Score:</strong> ${score}/${questions.length}</p>
+      <button onclick="goToRiskPage()">
+        ➡ Check Your PCOD Risk Level
+      </button>
+    `;
+  }
 }
 
 // ================= REDIRECT FUNCTION =================
 function goToRiskPage() {
-  console.log("➡ Redirecting to PCOD Risk Page...");
-  window.location.href = "pcod-risk.html";
+  window.location.href = "pages/pcod-risk.html";
 }
