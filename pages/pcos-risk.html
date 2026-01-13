@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PCOS Risk Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pcod-risk.css">
+</head>
+
+<body>
+
+<div class="card">
+
+  <h2>🌸 PCOS Risk Quiz</h2>
+  <p class="sub">Answer honestly to understand your hormonal health</p>
+
+  <!-- Progress -->
+  <div class="progress">
+    <div id="bar"></div>
+  </div>
+  <p id="levelText"></p>
+
+  <!-- Question -->
+  <h3 id="question"></h3>
+
+  <!-- Options -->
+  <div class="game-options">
+    <button onclick="answer(2)">✔ Yes</button>
+    <button class="mid" onclick="answer(1)">➖ Sometimes</button>
+    <button class="secondary" onclick="answer(0)">✖ No</button>
+  </div>
+
+  <p id="feedback"></p>
+
+  <!-- RESULT -->
+  <div id="resultBox" class="hidden">
+    <h2 id="resultTitle"></h2>
+    <span id="badge"></span>
+    <p id="scoreText"></p>
+
+    <ul id="steps"></ul>
+
+    <!-- SMALL BUTTONS -->
+    <div class="actions">
+      <button onclick="openProducts()">🛍 Products</button>
+      <button onclick="toggleChat()">💬 Chat</button>
+      <button onclick="openDoctor()">👩‍⚕️ Doctor</button>
+    </div>
+
+    <!-- BIG NEXT BUTTON -->
+    <div class="next-btn">
+      <button class="big-btn" onclick="openDiet()">➡ Diet & Lifestyle</button>
+    </div>
+
+    <button class="restart" onclick="restartQuiz()">🔁 Restart Quiz</button>
+
+    <p class="note">⚠ Awareness tool only. Not a diagnosis.</p>
+  </div>
+
+</div>
+
+<!-- CHAT SUPPORT -->
+<div id="chatbot" class="chatbot hidden">
+  <div class="chat-header">
+    PCOS Chat Support 💗
+    <span onclick="toggleChat()">✖</span>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="bot">Hello 🌸 How can I help you with PCOS?</div>
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask about PCOS..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- JS FILE (PCOS QUESTIONS LOGIC) -->
+<script src="pcos-risk.js"></script>
+</body>
+</html>
