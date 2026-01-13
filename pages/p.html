@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care Her – PCOD & PCOS</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="p.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="./images/logo.png" alt="logo" class="nav-logo">
+      <span class="nav-name">Care Her</span>
+    </div>
+
+    <div class="menu" id="menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="./pages/healthCheck.html">Health Check</a>
+      <a href="./pages/products.html">Products</a>
+      <a href="./pages/contact.html">Contact</a>
+      <a href="./pages/reviews.html">Reviews</a>
+      <a href="./pages/login.html"><img src="./images/woman.png" alt="login" class="user-icon"></a>
+
+      <div class="nav-clock">
+        <span id="dateSpan"></span>
+        <span id="timeSpan"></span>
+      </div>
+
+      <button class="theme-toggle" id="themeBtn">🌙 Dark Mode</button>
+    </div>
+
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <h1>🌸 Care Her</h1>
+    <p>Your Companion for PCOD & PCOS Awareness</p>
+  </header>
+
+  <!-- ===== MAIN CARD ===== -->
+  <section class="card center">
+    <h2>Choose What You Want to Learn</h2>
+    <p>PCOD and PCOS affect women differently. Select one to understand symptoms, risks, and care guidance.</p>
+
+    <div class="choice-buttons">
+      <div class="choice-box pcod" onclick="goPCOD()">
+        <h3>🌺 PCOD</h3>
+        <p>Lifestyle-related hormonal imbalance</p>
+      </div>
+
+      <div class="choice-box pcos" onclick="goPCOS()">
+        <h3>🌼 PCOS</h3>
+        <p>Chronic hormonal & ovulation condition</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Care Her | Women’s Health Matters
+  </footer>
+
+  <!-- JS -->
+  <script src="p.js"></script>
+</body>
+</html>
