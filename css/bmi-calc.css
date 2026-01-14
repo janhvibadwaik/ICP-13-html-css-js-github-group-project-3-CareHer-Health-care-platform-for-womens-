@@ -1,0 +1,130 @@
+ body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff90c7;
+      color: black;
+      transition: 0.3s;
+      margin: 0;
+    }
+
+    body.light-mode {
+      background: #c4437d;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      background-color: black;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+    }
+    .bmi-container {
+      background: #ffa6ca;
+      padding: 25px;
+      border-radius: 12px;
+      width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    body.light-mode .bmi-container {
+      background: #c42c70;
+    }
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .calculate-btn {
+      background: #4caf50;
+      color: white;
+    }
+
+    .reset-btn {
+      background: #f44336;
+      color: white;
+    }
+    .result {
+      margin-top: 12px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+    /*chatboat*/
+
+  .floating-chatbot {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-size: 13px;
+      z-index: 1000;
+    }
+   .chat-header {
+      background: #c42c70;
+      color: #fff;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background: #f7f7f7;
+    }
+    .bot {
+      color: #c42c70;
+      font-weight: bold;
+    }
+
+    .user {
+      text-align: right;
+      color: #333;
+    }
+    .chat-input {
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+      background: #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .chat-input button {
+      background: #c42c70;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 60px;
+    }
