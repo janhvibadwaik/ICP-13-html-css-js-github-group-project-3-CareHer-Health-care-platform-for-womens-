@@ -55,3 +55,9 @@ function submitForm(){
         </div>
     </div>`;       
 }
+function displayFormDeleteReview(){
+        const reviews = document.getElementById("review-card-container");
+        reviews.innerHTML="";
+        localStorage.removeItem("reviewData");
+      location.reload();
+}
