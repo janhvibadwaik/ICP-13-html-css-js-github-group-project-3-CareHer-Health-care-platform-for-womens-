@@ -77,3 +77,6 @@ function displayUserProfileAndHideForm(){
      </div>    
      </div>`;
     }
+function logOut(){
+      window.location.href="login.html";
+      }    
