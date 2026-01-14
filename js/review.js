@@ -1,3 +1,27 @@
+window.onload= function(){
+        const container = document.getElementById("container");
+        const savedData = localStorage.getItem("reviewData");
+     const reviews = document.getElementById("review-card-container");
+      if(savedData){
+        container.innerHTML="";
+        const reviewData = JSON.parse(savedData);
+        reviews.innerHTML+=`<div class="review-card">
+        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
+        <div class="date">Date:${reviewData.date}</div>
+        <div class="card-name">
+            Name:${reviewData.name}
+        </div>
+        Rating:
+        <div class="card-rating">
+           ${reviewData.stars} 
+        </div>
+        <div class="card-comment">
+            comment:<br>${reviewData.comment}
+        </div>
+    </div>`;
+      }return;
+}
+
 function submitForm(){
         const container = document.getElementById("container");
         const reviews = document.getElementById("review-card-container");
