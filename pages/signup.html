@@ -3,6 +3,8 @@
 <head>
     <title>Healthcare Website</title>
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/signup.css">
+    <script src="../js/signup.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -21,5 +23,25 @@
       </div>
     </div>
     </div>
+    <div class="form-container" id="form-container">
+      <form class="signup-form">
+        <div class="form-heading"> 
+         <img src="../images/user.jpeg" class="user-profile">Signup
+        </div>
+        <div class="item-holder">
+          <input type="text" class="form-item" id="firstname" placeholder="First Name" required>
+          <input type="text" class="form-item" id="lastname" placeholder="Last Name" required>
+        </div>
+          <input type="number" class="form-item" id="age" placeholder="Age" required>
+          <input type="email" class="form-item" id="email" placeholder="Email" required>
+          <input type="tel" class="form-item" id="phone-number" placeholder="Phone Number" required> 
+          <div class="password-container">      
+          <input type="password" class="form-item" id="password" placeholder="Password" required>
+          <img src="../images/hide.png" class="eye-img" id="eye" onclick="passwordToggle()">
+          </div>
+          <button type="submit" class="btn" onclick="displayUserProfileAndHideForm()">Login</button>
+          <p style="margin-top: -12px; font-size: 14px; text-align: center;">if already have account <a href="login.html">login</a></p>
+      </form>
+      </div>
 </body>
 </html>
