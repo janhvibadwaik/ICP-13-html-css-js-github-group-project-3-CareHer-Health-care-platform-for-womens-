@@ -11,7 +11,7 @@
     <img src="../images/logo.png" alt="logo" class="nav-logo"/>
     <span class="nav-name">Care Her</span>
     <div class="menu">
-      <a href="index.html">Home</a>
+      <a href="../index.html">Home</a>
       <a href="pages/healthCheck.html">Health Check</a>
       <a href="exercise.html">Exercise</a>
       <a href="Contact.html">Contact</a>
@@ -86,5 +86,17 @@
         
      </div>
     </div>
+    <script>
+        function updateClock() {
+     const dateSpan = document.getElementById("dateSpan");
+     const timeSpan = document.getElementById("timeSpan");
+     const now = new Date();
+
+     dateSpan.innerText = now.toDateString();
+     timeSpan.innerText = now.toLocaleTimeString();
+     }
+     updateClock();
+     setInterval(updateClock, 1000);
+    </script>
 </body>
 </html>
