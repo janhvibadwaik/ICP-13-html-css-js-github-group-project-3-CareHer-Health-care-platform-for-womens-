@@ -50,3 +50,56 @@
     border: none; 
     background: none;
 }
+.container { max-width: 600px; margin:20px auto;min-width: none;min-height:fit-content; }
+        .panel { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: start;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .star-rating input { display: none; }
+        .star-rating label {
+            font-size: 26px;
+            color: #ddd;
+            cursor: pointer;
+            transition:  0.3s;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: gold;
+        }
+.input-container {  
+            gap: 15px; 
+            margin-bottom: 25px; 
+        }
+        .input-group { 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .field-label { 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+            font-size: 15px; 
+        }
+        .textarea {
+            background-color: #fff7fb; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        .submit-btn { 
+            width: 100%; 
+            padding: 12px; 
+            background: #c93779; 
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            margin-top: 15px;
+        }

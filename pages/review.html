@@ -24,33 +24,66 @@
     </div> 
     <div class="review-card-container" id="review-card-container">
         <div class="review-card">
-        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
-        <div class="date">Date: 2026-01-10</div>
-        <div class="card-name">
-            Name: Robert Chen
+         <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
+         <div class="date">Date: 2026-01-10
+         </div>
+         <div class="card-name">
+             Name: Robert Chen
+         </div>
+         Rating:
+         <div class="card-rating">
+            ★★★★☆
+         </div>
+         <div class="card-comment">
+             comment:<br>Great experience overall.
+         </div>
         </div>
-        Rating:
-        <div class="card-rating">
-           ★★★★☆
-        </div>
-        <div class="card-comment">
-            comment:<br>Great experience overall.
+        <div class="review-card">
+         <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
+         <div class="date">Date: 2026-01-08
+         </div>
+         <div class="card-name">
+             Name: Michael R.
+         </div>
+         Rating:
+         <div class="card-rating">
+            ★★★★★
+         </div>
+         <div class="card-comment">
+             comment:<br>Its easy to handle and userfriendly
+         </div>
         </div>
     </div>
-    <div class="review-card">
-        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
-        <div class="date">Date: 2026-01-08</div>
-        <div class="card-name">
-            Name: Michael R.
-        </div>
-        Rating:
-        <div class="card-rating">
-           ★★★★★
-        </div>
-        <div class="card-comment">
-            comment:<br>Its easy to handle and userfriendly
-        </div>
+    <div class="container" id="container">
+     <div class="panel">
+        <h2>Submit Your Review</h2>
+        <form id="reviewForm">
+            <div class="input-container">
+                <div class="input-group">
+                    <label  class="field-label">Name</label>
+                    <input type="text" class="textarea" id="name" required>
+                </div>
+                <div class="input-group">
+                    <label  class="field-label">Date</label>
+                    <input type="date" class="textarea" id="date">
+                </div>
+            </div>
+            <label class="field-label">Rating</label>
+            <div class="star-rating">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5" class="field-label">★</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4" class="field-label">★</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3" class="field-label">★</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2" class="field-label">★</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1" class="field-label">★</label>
+            </div>
+            <div class="input-group" style="margin-top:20px;">
+                <label  class="field-label">Comments</label>
+                <textarea class="textarea" id="comments" rows="3"></textarea>
+            </div>
+            <button class="submit-btn" onclick="submitForm()">Post review</button>
+        </form>
+        
+     </div>
     </div>
-</div>
 </body>
 </html>
