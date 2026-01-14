@@ -17,7 +17,6 @@
 
     body.light-mode {
       background: #c4437d;
-      color: black;
     }
 
     .theme-toggle {
@@ -37,7 +36,6 @@
       padding: 25px;
       border-radius: 12px;
       width: 400px;
-      height: 300px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
 
@@ -74,17 +72,12 @@
     }
 
     .result {
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: bold;
+      line-height: 1.5;
     }
 
-    img {
-      margin-top: 10px;
-      max-width: 100px;
-      display: none;
-    }
-
-    /* Floating Chatbot Styles */
+    /* Floating Chatbot */
     .floating-chatbot {
       position: fixed;
       right: 20px;
@@ -114,10 +107,6 @@
       padding: 10px;
       overflow-y: auto;
       background: #f7f7f7;
-    }
-
-    .chat-messages div {
-      margin-bottom: 6px;
     }
 
     .bot {
@@ -151,37 +140,38 @@
       padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
-      width: 50px;
+      width: 60px;
     }
   </style>
 </head>
-<body class="dark-mode">
+
+<body>
 
 <div class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</div>
 
-<!-- BMI Container -->
+<!-- BMI Calculator -->
 <div class="bmi-container">
-  <h2>Calculate Your BMI  Here!...</h2>
-  <br>
+  <h2>Calculate Your BMI Here!</h2>
+
   <label>Weight (kg)</label>
-  <input type="number" id="weight"><br><br>
+  <input type="number" id="weight">
+
   <label>Height (cm)</label>
   <input type="number" id="height">
-  <br><br>
+
   <div class="btn-group">
     <button class="calculate-btn" onclick="calculateBMI()">Calculate</button>
     <button class="reset-btn" onclick="resetBMI()">Reset</button>
   </div>
 
   <div class="result" id="result"></div>
-  <img id="bmiImage">
 </div>
 
 <!-- Floating Chatbot -->
-<div class="floating-chatbot" id="floatingChat">
+<div class="floating-chatbot">
   <div class="chat-header" onclick="toggleChat()">👩‍⚕️ Women's BMI Assistant</div>
   <div class="chat-messages" id="chatMessages">
-    <div class="bot">Hi! Ask me about BMI, diet, exercise, or periods info .</div>
+    <div class="bot">Hi! Ask me about BMI, diet, exercise, or periods info.</div>
   </div>
   <div class="chat-input">
     <input type="text" id="chatInput" placeholder="Ask something...">
@@ -190,7 +180,6 @@
 </div>
 
 <script>
-  // BMI Calculator
   const weightInput = document.getElementById("weight");
   const heightInput = document.getElementById("height");
   const result = document.getElementById("result");
@@ -206,13 +195,28 @@
 
     const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
     let category = "";
+    let link = "";
 
-    if (bmi < 18.5) category = "Underweight";
-    else if (bmi < 24.9) category = "Normal";
-    else if (bmi < 29.9) category = "Overweight";
-    else category = "Obese";
+    if (bmi < 18.5) {
+      category = "Underweight";
+      link = `<br><a href="bmi-gain.html" target="_blank" style="color:#2e7d32;">
+              👉 View Weight Gain Products</a>`;
+    } 
+    else if (bmi < 24.9) {
+      category = "Normal";
+    } 
+    else if (bmi < 29.9) {
+      category = "Overweight";
+      link = `<br><a href="bmi-loss.html" target="_blank" style="color:#c62828;">
+              👉 View Weight Loss Products</a>`;
+    } 
+    else {
+      category = "Obese";
+      link = `<br><a href="bmi-loss.html" target="_blank" style="color:#c62828;">
+              👉 View Weight Loss Products</a>`;
+    }
 
-    result.textContent = `Your BMI is ${bmi} (${category})`;
+    result.innerHTML = `Your BMI is ${bmi} (${category}) ${link}`;
   }
 
   function resetBMI() {
@@ -225,7 +229,6 @@
     document.body.classList.toggle("light-mode");
   }
 
-  // Chatbot Logic
   const chatMessages = document.getElementById("chatMessages");
   const chatInput = document.getElementById("chatInput");
 
@@ -239,20 +242,13 @@
     let reply = "I'm here to help women understand BMI better 💕";
     const msg = userText.toLowerCase();
 
-    if (msg.includes("underweight"))
-      reply = "Being underweight can affect hormones and fertility. Focus on nutritious meals and strength training.";
-    else if (msg.includes("normal"))
-      reply = "Great! A normal BMI supports healthy hormones, energy, and heart health.";
-    else if (msg.includes("overweight"))
-      reply = "Light exercise, balanced diet, and stress control help women manage weight safely.";
-    else if (msg.includes("obese"))
-      reply = "Gradual lifestyle changes and medical advice can greatly improve women's health.";
-    else if (msg.includes("diet"))
-      reply = "Women should focus on iron, calcium, protein, fruits, and vegetables.";
-    else if (msg.includes("exercise"))
-      reply = "Yoga, walking, strength training, and cardio are great for women.";
-    else if (msg.includes("periods"))
-      reply = "BMI before periods matters. Always consult a doctor for personalized advice.";
+    if (msg.includes("underweight")) reply = "Being underweight can affect hormones and fertility.";
+    else if (msg.includes("normal")) reply = "A normal BMI supports good overall health.";
+    else if (msg.includes("overweight")) reply = "Balanced diet and light exercise help manage weight.";
+    else if (msg.includes("obese")) reply = "Gradual lifestyle changes improve long-term health.";
+    else if (msg.includes("diet")) reply = "Focus on iron, calcium, protein, fruits, and vegetables.";
+    else if (msg.includes("exercise")) reply = "Walking, yoga, and strength training are great options.";
+    else if (msg.includes("periods")) reply = "BMI can affect menstrual health. Consult a doctor.";
 
     setTimeout(() => {
       chatMessages.innerHTML += `<div class="bot">👩‍⚕️ ${reply}</div>`;
@@ -261,16 +257,11 @@
   }
 
   function toggleChat() {
-    const chatBox = document.getElementById("floatingChat");
-    const messages = chatBox.querySelector(".chat-messages");
-    const input = chatBox.querySelector(".chat-input");
-    if (messages.style.display === "none") {
-      messages.style.display = "block";
-      input.style.display = "flex";
-    } else {
-      messages.style.display = "none";
-      input.style.display = "none";
-    }
+    const messages = document.querySelector(".chat-messages");
+    const input = document.querySelector(".chat-input");
+    const hidden = messages.style.display === "none";
+    messages.style.display = hidden ? "block" : "none";
+    input.style.display = hidden ? "flex" : "none";
   }
 </script>
 
