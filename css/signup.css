@@ -92,3 +92,13 @@
 .password-container:focus{
   border: 2px solid black;
 }
+.btn1{
+  font-size: 16px;
+  background-color:#cc0052;
+  color: white;
+  border: none;
+  border-radius: 5px; ;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 5px 10px;
+}
