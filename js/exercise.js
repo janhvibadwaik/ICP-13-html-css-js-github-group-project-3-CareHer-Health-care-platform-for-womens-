@@ -105,3 +105,16 @@ function displayWarriorPoseBenefits() {
         const exeInfoContainer = document.getElementById("exe-flashcard-container");
         exeInfoContainer.innerHTML = "";
     }
+
+
+function updateClock() {
+    const dateSpan = document.getElementById("dateSpan");
+    const timeSpan = document.getElementById("timeSpan");
+    const now = new Date();
+
+   dateSpan.innerText = now.toDateString();
+   timeSpan.innerText = now.toLocaleTimeString();
+}
+
+updateClock();
+setInterval(updateClock, 1000);

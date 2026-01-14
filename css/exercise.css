@@ -1,5 +1,5 @@
 .heading{
-    margin-top: 130px;
+    color: #c93779;
     text-align: center;
     padding: 20px;
 }
@@ -10,6 +10,7 @@
     padding: 5px;
 }
 .exe-cards{
+    color: #c93779;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +43,7 @@
     justify-content: center;
     position: fixed;
     border: 2px solid black;
-    background-color: whitesmoke;
+    background-color: #fff7fb;
     padding: 10px;
     border-radius: 30px;
     margin-left: 10px;

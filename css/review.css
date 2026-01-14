@@ -1,0 +1,105 @@
+.review-card-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review-card { background: white;
+    color: #c93779; 
+    border-radius: 8px; 
+    padding: 20px; 
+    margin: 15px; 
+    width: 800px;
+    position: relative;
+    border-left: 5px solid #c93779; box-shadow: 0 2px 4px #c93779; 
+    min-height: 150px;            
+    }
+.card-name { 
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold; 
+    font-size: 18px; 
+    display: block; }
+.card-rating{
+    font-weight: bold; 
+    font-size: 20px; 
+    display: block;
+    color: rgb(255, 217, 0);
+}    
+.card-comment { 
+    font-style: italic; 
+    color: #c93779; 
+    margin-top: 10px; 
+    border-top: 1px solid #c93779; 
+    padding-top: 10px; }
+.btn-delete { position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    cursor: pointer; 
+    color: #e74c3c; 
+    border: none; 
+    background: none; 
+}
+.date{position: absolute;
+    color: black; 
+    top: 10px; 
+    left: 10px; 
+    font-size: 14px;
+    cursor: pointer;  
+    border: none; 
+    background: none;
+}
+.container { max-width: 600px; margin:20px auto;min-width: none;min-height:fit-content; }
+        .panel { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: start;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .star-rating input { display: none; }
+        .star-rating label {
+            font-size: 26px;
+            color: #ddd;
+            cursor: pointer;
+            transition:  0.3s;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: gold;
+        }
+.input-container {  
+            gap: 15px; 
+            margin-bottom: 25px; 
+        }
+        .input-group { 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .field-label { 
+            font-weight: bold; 
+            margin-bottom: 5px; 
+            font-size: 15px; 
+        }
+        .textarea {
+            background-color: #fff7fb; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        .submit-btn { 
+            width: 100%; 
+            padding: 12px; 
+            background: #c93779; 
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            margin-top: 15px;
+        }

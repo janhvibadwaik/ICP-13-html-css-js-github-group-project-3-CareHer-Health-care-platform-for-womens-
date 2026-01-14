@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Healthcare website</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js"></script>
+</head>
+<body>
+    <div class="navbar">
+    <img src="../images/logo.png" alt="logo" class="nav-logo"/>
+    <span class="nav-name">Care Her</span>
+    <div class="menu">
+      <a href="../index.html">Home</a>
+      <a href="healthCheck.html">Health Check</a>
+      <a href="exercise.html">Exercise</a>
+      <a href="Contact.html">Contact</a>
+      <a href="review.html">Reviews</a>
+      <a href="signup.html"><img src="../images/woman.png" alt="login"/></a>
+      <div class="nav-clock">
+        <span id="dateSpan"></span>
+        <span id="timeSpan"></span>
+      </div>
+    </div>
+    </div>
+    <div class="form-container" id="form-container">
+      <form class="login-form">
+        <div class="form-heading"> 
+         <img src="../images/user.jpeg" class="user-profile">Login
+        </div>
+        <div class="item-holder">
+          <input type="email" class="input-box" id="email" placeholder="Email" required></div>
+         <div class="password-container">      
+          <input type="password" class="input-box" id="password" placeholder="Password" required>
+          <img src="../images/hide.png" class="eye-img" id="eye" onclick="passwordToggle()">
+          </div>
+          <button type="button" class="btn" onclick="login()">Login</button>
+           <p style="margin-top: -12px; font-size: 14px; text-align: center;">if new user create account <a href="signup.html" onclick="emptyUserData()">signup</a></p>
+      </form>
+      <script>
+        function updateClock() {
+     const dateSpan = document.getElementById("dateSpan");
+     const timeSpan = document.getElementById("timeSpan");
+     const now = new Date();
+
+     dateSpan.innerText = now.toDateString();
+     timeSpan.innerText = now.toLocaleTimeString();
+     }
+     updateClock();
+     setInterval(updateClock, 1000);
+      </script>
+   </div>
+</body>
+</html>
