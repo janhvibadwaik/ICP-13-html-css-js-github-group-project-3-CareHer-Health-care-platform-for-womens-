@@ -1,327 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PCOD Products | Shopping</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>PCOD Products | Care Her</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-  /* ===== RESET ===== */
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
+<!-- ================= CSS ================= -->
+<style>
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
 
-  /* ===== THEME VARIABLES ===== */
-  :root{
-    --primary:#d63384;
-    --secondary:#ff6fae;
-    --bg:#fff0f6;
-    --card:#ffffff;
-    --text:#333;
-    --input-bg:#fff;
-    --input-border:#ccc;
-  }
-  body.dark{
-    --primary:#ff6fae;
-    --secondary:#ff9ccc;
-    --bg:#1e1e1e;
-    --card:#2c2c2c;
-    --text:#eee;
-    --input-bg:#333;
-    --input-border:#555;
-  }
+body{
+  margin:0;
+  background:linear-gradient(135deg,#fde4ec,#f4f6f8);
+  color:#333;
+}
 
-  body{
-    background:var(--bg);
-    color:var(--text);
-    transition:0.3s;
-    padding-top:90px;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
+/* ===== HEADER ===== */
+.top-bar{
+  background:linear-gradient(135deg,#a53860,#d876d9);
+  color:#fff;
+  padding:18px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+.top-bar h1{margin:0;font-size:22px;}
+.top-bar input{
+  padding:10px 14px;
+  width:260px;
+  border-radius:25px;
+  border:none;
+  outline:none;
+}
 
-  /* ===== DARK MODE BUTTON ===== */
-  #themeBtn{
-    position:fixed;
-    top:15px;
-    right:15px;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    border:none;
-    cursor:pointer;
-    background:var(--primary);
-    color:white;
-    font-size:18px;
-    z-index:1000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    transition:0.3s;
-  }
-  #themeBtn:hover{transform:scale(1.1);opacity:0.9;}
+/* ===== LAYOUT ===== */
+.container{
+  display:grid;
+  grid-template-columns:240px 1fr;
+  gap:25px;
+  padding:25px;
+}
 
-  /* ===== HEADER ===== */
-  .top-bar{
-    width:100%;
-    position:fixed;
-    top:0;
-    background:var(--card);
-    padding:15px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 6px 18px rgba(0,0,0,0.08);
-    z-index:10;
-    transition:0.3s;
-  }
-  .top-bar input{
-    padding:8px 12px;
-    border-radius:8px;
-    border:1px solid var(--input-border);
-    outline:none;
-    background:var(--input-bg);
-    color:var(--text);
-    transition:0.3s;
-  }
+/* ===== FILTER ===== */
+.filters{
+  background:#fff;
+  padding:18px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.filters h3{
+  margin-top:0;
+  font-size:16px;
+  color:#a53860;
+}
+.filters label{
+  display:block;
+  margin:10px 0;
+  font-size:14px;
+  cursor:pointer;
+}
 
-  /* ===== LAYOUT ===== */
-  .container{
-    max-width:1100px;
-    width:100%;
-    display:flex;
-    gap:20px;
-    padding:20px;
-    transition:0.3s;
-  }
-  .filters{
-    width:220px;
-    background:var(--card);
-    padding:20px;
-    border-radius:16px;
-    flex-shrink:0;
-    box-shadow:0 8px 20px rgba(0,0,0,0.05);
-    transition:0.3s;
-  }
-  .filters h3{margin-bottom:12px;}
-  .filters label{display:block;margin:6px 0;cursor:pointer;}
+/* ===== PRODUCTS ===== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:22px;
+}
 
-  .products{
-    flex:1;
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-    gap:20px;
-    transition:0.3s;
-  }
+/* ===== PRODUCT CARD ===== */
+.product-card{
+  background:#fff;
+  padding:15px;
+  border-radius:18px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  transition:.3s;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 30px rgba(0,0,0,.18);
+}
+.product-card img{
+  width:100%;
+  height:170px;
+  object-fit:contain;
+  margin-bottom:10px;
+}
+.product-card h4{
+  font-size:15px;
+  margin:8px 0;
+}
+.price{
+  color:#d32f2f;
+  font-weight:bold;
+}
+.price span{
+  text-decoration:line-through;
+  color:gray;
+  font-size:12px;
+  margin-left:6px;
+}
+.seller{
+  font-size:12px;
+  color:#777;
+}
 
-  .product-card{
-    background:var(--card);
-    border-radius:18px;
-    padding:15px;
-    text-align:center;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  }
-  .product-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.15);
-  }
-  .product-card img{
-    width:100%;
-    border-radius:12px;
-    margin-bottom:10px;
-  }
-  .price span{text-decoration:line-through;font-size:13px;color:gray;margin-left:6px;}
+/* ===== MODAL ===== */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:999;
+}
+.modal-content{
+  background:#fff;
+  padding:25px;
+  width:320px;
+  margin:10% auto;
+  border-radius:18px;
+  text-align:center;
+}
+.close{
+  float:right;
+  cursor:pointer;
+  font-size:18px;
+}
+.buy{
+  margin-top:15px;
+  padding:12px;
+  width:100%;
+  border-radius:25px;
+  background:linear-gradient(135deg,#a53860,#f48fb1);
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
 
-  /* ===== MODAL ===== */
-  .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:200;
-  }
-  .modal-content{
-    background:var(--card);
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    width:300px;
-    color:var(--text);
-    position:relative;
-    transition:0.3s;
-  }
-  .close{
-    position:absolute;
-    top:10px;
-    right:12px;
-    font-size:18px;
-    cursor:pointer;
-  }
+/* ===== FOOTER (same theme) ===== */
+.footer{
+  width:100%;
+  margin-top:100px;   
+  background:linear-gradient(135deg,var(--bg),#ffd6e8);
+  border-top:1px solid rgba(0,0,0,0.08);
+}
 
-  /* ===== FOOTER ===== */
-  .footer{
-    width:100%;
-    margin-top:40px;
-    background:linear-gradient(135deg,var(--bg),#ffd6e8);
-    border-top:1px solid rgba(0,0,0,0.08);
-    transition:0.3s;
-  }
-  body.dark .footer{
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    border-top:1px solid #333;
-  }
+
+body.dark .footer{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.footer-brand h3{
+  color:var(--primary);
+}
+
+body.dark .footer-brand h3{
+  color:white;
+}
+
+.footer-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--text);
+  opacity:0.85;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  text-decoration:underline;
+}
+
+body.dark .footer-links a{
+  color:white;
+}
+
+.footer-note{
+  font-size:14px;
+  opacity:0.8;
+}
+
+.footer-bottom{
+  text-align:center;
+  padding:12px;
+  font-size:13px;
+  background:rgba(255,255,255,0.5);
+}
+
+body.dark .footer-bottom{
+  background:rgba(0,0,0,0.4);
+  color:white;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
   .footer-content{
-    max-width:1100px;
-    margin:auto;
-    padding:30px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    text-align:center;
+    flex-direction:column;
+    gap:20px;
   }
-  .footer-links{
-    display:flex;
-    gap:18px;
-    flex-wrap:wrap;
-  }
-  .footer-links a{
-    text-decoration:none;
-    font-size:14px;
-    color:var(--text);
-    opacity:0.85;
-    transition:0.3s;
-  }
-  .footer-links a:hover{color:var(--primary);opacity:1;}
-  .footer-bottom{
-    text-align:center;
-    padding:12px;
-    font-size:13px;
-    opacity:0.7;
-    background:rgba(255,255,255,0.5);
-    transition:0.3s;
-  }
-  body.dark .footer-bottom{background:rgba(0,0,0,0.4);}
-
-  /* ===== RESPONSIVE ===== */
-  @media(max-width:768px){
-    .container{flex-direction:column;}
-    .filters{width:100%;}
-    .footer-content{flex-direction:column;gap:20px;}
-  }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-<button id="themeBtn">🌙</button>
-
+<!-- ===== HEADER ===== -->
 <header class="top-bar">
   <h1>🛒 PCOD Products</h1>
-  <input type="search" placeholder="Search products">
+  <input type="search" id="searchBox" placeholder="Search PCOD products...">
 </header>
 
 <div class="container">
 
-  <aside class="filters">
-    <h3>Filter by Price</h3>
-    <label><input type="radio" name="price"> Up to ₹500</label>
-    <label><input type="radio" name="price"> ₹500 – ₹1000</label>
-    <label><input type="radio" name="price"> Above ₹1000</label>
-  </aside>
+<!-- FILTER -->
+<aside class="filters">
+  <h3>Filter by Price</h3>
+  <label><input type="radio" name="price"> Up to ₹500</label>
+  <label><input type="radio" name="price"> ₹500 – ₹1000</label>
+  <label><input type="radio" name="price"> Above ₹1000</label>
 
-  <main class="products">
-    <div class="product-card" onclick="openProduct('Zenius PCOD Capsule','₹727','Hormonal balance support')">
-      <img src="1.png" alt="Zenius PCOD Capsule">
-      <h4>Zenius PCOD Capsule</h4>
-      <p class="price">₹727 <span>₹749</span></p>
-      <p>Seller: 1mg</p>
-    </div>
+  <h3>Seller</h3>
+  <label><input type="checkbox"> Amazon</label>
+  <label><input type="checkbox"> 1mg</label>
+  <label><input type="checkbox"> PharmEasy</label>
+</aside>
 
-    <div class="product-card" onclick="openProduct('HerbX PCOD Support','₹899','Supports hormonal balance')">
-      <img src="2.png" alt="HerbX PCOD Support">
-      <h4>HerbX PCOD Support</h4>
-      <p class="price">₹899 <span>₹950</span></p>
-      <p>Seller: HealthKart</p>
-    </div>
+<!-- PRODUCTS -->
+<main class="products">
 
-    <div class="product-card" onclick="openProduct('Wellness PCOD Blend','₹1200','Boosts metabolism')">
-      <img src="3.png" alt="Wellness PCOD Blend">
-      <h4>Wellness PCOD Blend</h4>
-      <p class="price">₹1200 <span>₹1350</span></p>
-      <p>Seller: MedPlus</p>
-    </div>
-  </main>
+  <!-- Images 1–11 ONLY -->
+  <div class="product-card" onclick="openProduct('Zenius PCOD Care Capsule','₹727','Ayurvedic capsules to support hormonal balance.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\1.png"><h4>Zenius PCOD Care Capsule</h4>
+    <p class="price">₹727 <span>₹749</span></p><p class="seller">Seller: 1mg</p>
+  </div>
 
+  <div class="product-card" onclick="openProduct('Nveda PCOD Care Capsule','₹430','Herbal PCOD support.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\2.png"><h4>Nveda PCOD Care Capsule</h4>
+    <p class="price">₹430 <span>₹690</span></p><p class="seller">Seller: 1mg</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('Cureayu PCOD Wellness','₹749','Supports ovulation & acne control.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\3.png"><h4>Cureayu PCOD Wellness</h4>
+    <p class="price">₹749 <span>₹936</span></p><p class="seller">Seller: Amazon</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('PCOD Complete Care Kit','₹999','Complete PCOD care kit.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\4.png"><h4>PCOD Complete Care Kit</h4>
+    <p class="price">₹999 <span>₹1299</span></p><p class="seller">Seller: PharmEasy</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('Hormonal Balance Tablets','₹599','Controls insulin resistance.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\6.png"><h4>Hormonal Balance Tablets</h4>
+    <p class="price">₹599 <span>₹799</span></p><p class="seller">Seller: 1mg</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('PCOD Period Relief','₹499','Reduces cramps & bloating.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\7.png"><h4>PCOD Period Relief</h4>
+    <p class="price">₹499 <span>₹699</span></p><p class="seller">Seller: Amazon</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('Vaidban PCOD Complete Kit','₹1,299','Ayurvedic PCOD solution.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\8.png"><h4>Vaidban PCOD Complete Kit</h4>
+    <p class="price">₹1,299 <span>₹1,599</span></p><p class="seller">Seller: Amazon</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('Seven Cure PCOD Tablets','₹899','Myo-Inositol & NAC.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\9.png"><h4>Seven Cure PCOD Tablets</h4>
+    <p class="price">₹899 <span>₹1,199</span></p><p class="seller">Seller: PharmEasy</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('Narie PCOS Care','₹749','Hormonal balance support.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\10.png"><h4>Narie PCOS Care</h4>
+    <p class="price">₹749 <span>₹999</span></p><p class="seller">Seller: 1mg</p>
+  </div>
+
+  <div class="product-card" onclick="openProduct('Grocare Turmeric Supplement','₹599','Helps reduce cysts.')">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\11.png"><h4>Grocare Turmeric Supplement</h4>
+    <p class="price">₹599 <span>₹799</span></p><p class="seller">Seller: Amazon</p>
+  </div>
+
+</main>
 </div>
 
-<div class="modal" id="productModal">
+<!-- MODAL -->
+<div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeProduct()">✖</span>
     <h2 id="modalTitle"></h2>
     <p id="modalPrice"></p>
     <p id="modalDesc"></p>
+    <button class="buy">Buy Now</button>
   </div>
 </div>
 
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="footer-content">
-    <div>
-      <h3>🌸 Care Her</h3>
+    <div class="footer-brand">
+      <h3>Women health care platform</h3>
       <p>PCOD & PCOS Awareness Platform</p>
     </div>
+
     <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#">Health Check</a>
-      <a href="#">Products</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="healthCheck.html">Health Check</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <div>💗 Your health, our priority</div>
+
+    <div class="footer-note">💗 Your health, our priority</div>
   </div>
+
   <div class="footer-bottom">
     © <span id="year"></span> Care Her. All rights reserved.
   </div>
 </footer>
 
+<!-- ================= JS ================= -->
 <script>
-/* ===== AUTO YEAR ===== */
-document.getElementById("year").innerText = new Date().getFullYear();
+const products=document.querySelectorAll(".product-card");
+const searchBox=document.getElementById("searchBox");
+const modal=document.getElementById("productModal");
+const modalTitle=document.getElementById("modalTitle");
+const modalPrice=document.getElementById("modalPrice");
+const modalDesc=document.getElementById("modalDesc");
 
-/* ===== DARK MODE ===== */
-const themeBtn = document.getElementById("themeBtn");
-if(localStorage.getItem("theme")==="dark"){
-  document.body.classList.add("dark");
-  themeBtn.innerText="☀️";
+searchBox.addEventListener("keyup",()=>{
+  const text=searchBox.value.toLowerCase();
+  products.forEach(card=>{
+    card.style.display=card.innerText.toLowerCase().includes(text)?"block":"none";
+  });
+});
+
+function openProduct(name,price,desc){
+  modalTitle.innerText=name;
+  modalPrice.innerText="Price: "+price;
+  modalDesc.innerText=desc;
+  modal.style.display="block";
+  localStorage.setItem("selectedProduct",JSON.stringify({name,price}));
 }
-themeBtn.onclick = () => {
-  document.body.classList.toggle("dark");
-  const dark = document.body.classList.contains("dark");
-  localStorage.setItem("theme", dark?"dark":"light");
-  themeBtn.innerText = dark?"☀️":"🌙";
+
+function closeProduct(){
+  modal.style.display="none";
+}
+
+document.querySelector(".buy").onclick=()=>{
+  const p=JSON.parse(localStorage.getItem("selectedProduct"));
+  alert("Redirecting...\n"+p.name+" - "+p.price);
+  window.open("https://www.amazon.in","_blank");
 };
 
-/* ===== PRODUCT MODAL ===== */
-const modal = document.getElementById("productModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalPrice = document.getElementById("modalPrice");
-const modalDesc = document.getElementById("modalDesc");
-
-function openProduct(name, price, desc){
-  modal.style.display = "flex";
-  modalTitle.innerText = name;
-  modalPrice.innerText = price;
-  modalDesc.innerText = desc;
-}
-
-function closeProduct(){ modal.style.display = "none"; }
-
-/* ===== CLOSE MODAL ON OUTSIDE CLICK ===== */
-window.onclick = (e) => { if(e.target==modal) modal.style.display="none"; }
+window.onclick=e=>{
+  if(e.target===modal) closeProduct();
+};
 </script>
 
 </body>

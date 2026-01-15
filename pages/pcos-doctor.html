@@ -122,44 +122,81 @@
 
     /* ===== FOOTER ===== */
     .footer{
-      width:100%;
-      margin-top:40px;
-      background:linear-gradient(135deg,var(--bg),#ffd6e8);
-      border-top:1px solid rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-    body.dark .footer{
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      border-top:1px solid #333;
-    }
-    .footer-content{
-      max-width:1100px;
-      margin:auto;
-      padding:30px 20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      text-align:center;
-    }
-    .footer-brand h3{ color:var(--primary); }
-    body.dark .footer-brand h3{ color:white; }
-    .footer-brand p{ font-size:14px; opacity:0.85; }
-    .footer-links{ display:flex; gap:18px; flex-wrap:wrap; }
-    .footer-links a{ text-decoration:none; font-size:14px; color:var(--text); opacity:0.85; }
-    body.dark .footer-links a{ color:white; }
-    .footer-links a:hover{ color:var(--primary); }
-    .footer-note{ font-size:14px; opacity:0.8; }
-    .footer-bottom{
-      text-align:center;
-      padding:12px;
-      font-size:13px;
-      background:rgba(255,255,255,0.5);
-    }
-    body.dark .footer-bottom{
-      background:rgba(0,0,0,0.4);
-      color:white;
-    }
+  width:100%;
+  margin-top:100px;   
+  background:linear-gradient(135deg,var(--bg),#ffd6e8);
+  border-top:1px solid rgba(0,0,0,0.08);
+}
+
+
+body.dark .footer{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.footer-brand h3{
+  color:var(--primary);
+}
+
+body.dark .footer-brand h3{
+  color:white;
+}
+
+.footer-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--text);
+  opacity:0.85;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  text-decoration:underline;
+}
+
+body.dark .footer-links a{
+  color:white;
+}
+
+.footer-note{
+  font-size:14px;
+  opacity:0.8;
+}
+
+.footer-bottom{
+  text-align:center;
+  padding:12px;
+  font-size:13px;
+  background:rgba(255,255,255,0.5);
+}
+
+body.dark .footer-bottom{
+  background:rgba(0,0,0,0.4);
+  color:white;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .footer-content{
+    flex-direction:column;
+    gap:20px;
+  }
+}
 
     /* ===== CHATBOT ===== */
     #chatbot{
@@ -278,12 +315,22 @@
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-brand">
-      <h3>CareHer</h3>
-      <p>Women’s PCOS Healthcare Support</p>
+      <h3>Women health care platform</h3>
+      <p>PCOD & PCOS Awareness Platform</p>
     </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="healthCheck.html">Health Check</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-note">💗 Your health, our priority</div>
   </div>
+
   <div class="footer-bottom">
-    © 2026 CareHer
+    © <span id="year"></span> Care Her. All rights reserved.
   </div>
 </footer>
 

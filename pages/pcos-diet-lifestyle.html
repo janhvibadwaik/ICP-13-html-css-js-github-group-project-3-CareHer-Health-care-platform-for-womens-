@@ -1,273 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Healthy Lifestyle for PCOS | CareHer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Lifestyle for PCOS | Care Her</title>
 
-  <!-- External CSS (optional if you want) -->
-  <!-- <link rel="stylesheet" href="css/pcod-diet-lifestyle.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* ===== RESET ===== */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+<style>
+/* ================= THEME VARIABLES ================= */
+:root{
+  --primary:#d63384;
+  --secondary:#ff6fae;
+  --bg:#fff0f6;
+  --card:#ffffff;
+  --text:#333;
+  --nav-bg:#fff0f6;
+  --nav-link:#333;
+}
+body.dark{
+  --primary:#ff6fae;
+  --secondary:#ff9ccc;
+  --bg:#1e1e1e;
+  --card:#2c2c2c;
+  --text:#eee;
+  --nav-bg:#2c2c2c;
+  --nav-link:#eee;
+}
 
-    /* ===== THEME VARIABLES ===== */
-    :root{
-      --primary:#d63384;
-      --secondary:#ff6fae;
-      --bg:#fff0f6;
-      --card:#ffffff;
-      --text:#333;
-    }
-    body.dark{
-      --primary:#ff6fae;
-      --secondary:#ff9ccc;
-      --bg:#1e1e1e;
-      --card:#2c2c2c;
-      --text:#eee;
-    }
+/* ================= GLOBAL ================= */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  transition:.3s;
+}
 
-    body{
-      min-height:100vh;
-      background:linear-gradient(135deg,var(--bg),#fff);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:20px;
-      transition:0.3s;
-    }
-    body.dark{
-      background:linear-gradient(135deg,var(--primary),var(--bg));
-    }
+/* ================= NAVBAR ================= */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 30px;
+  background:var(--nav-bg);
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.nav-logo{width:40px;height:40px;}
+.nav-name{font-size:20px;font-weight:700;color:var(--primary);}
+.menu{display:flex;align-items:center;gap:20px;}
+.menu a{
+  text-decoration:none;
+  color:var(--nav-link);
+  font-weight:500;
+  padding:6px 12px;
+  border-radius:8px;
+}
+.menu a:hover{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+}
+.menu-toggle{display:none;font-size:22px;cursor:pointer;}
+.nav-clock{font-size:12px;text-align:center;}
+.theme-toggle{
+  border:none;
+  padding:6px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+}
+.login-icon img{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+}
 
-    /* ===== DARK MODE BUTTON ===== */
-    #themeBtn{
-      position:fixed;
-      top:15px;
-      right:15px;
-      width:40px;
-      height:40px;
-      border-radius:50%;
-      border:none;
-      cursor:pointer;
-      background:var(--primary);
-      color:#fff;
-      font-size:18px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-      z-index:1000;
-    }
+/* ================= CARD ================= */
+.lifestyle-card{
+  max-width:900px;
+  margin:40px auto;
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+h2{text-align:center;color:var(--primary);}
+.intro{text-align:center;margin-bottom:30px;opacity:.85;}
+.section{margin-bottom:35px;}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:15px;}
+.section-head img{width:45px;}
 
-    /* ===== CARD ===== */
-    .lifestyle-card{
-      max-width:900px;
-      width:100%;
-      background:var(--card);
-      border-radius:20px;
-      padding:30px;
-      box-shadow:0 20px 45px rgba(0,0,0,0.15);
-      color:var(--text);
-    }
+.checklist{list-style:none;}
+.checklist li{
+  background:#f8f8f8;
+  padding:12px;
+  border-radius:12px;
+  margin:8px 0;
+}
+body.dark .checklist li{background:#3c3c3c;}
 
-    h2{text-align:center;color:var(--primary);}
-    .intro{text-align:center;margin-bottom:30px;opacity:0.85;}
+.food-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
+  margin-bottom:20px;
+}
+.food-card{
+  background:#fff;
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+}
+body.dark .food-card{background:#3a3a3a;}
+.food-card img{width:60px;}
 
-    .section{margin-bottom:35px;}
-    .section-head{display:flex;align-items:center;gap:12px;}
+.routine-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:12px;
+}
+.box{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+}
 
-    .checklist{list-style:none;}
-    .checklist li{
-      background:#f8f8f8;
-      margin:8px 0;
-      padding:12px;
-      border-radius:12px;
-    }
-    body.dark .checklist li{background:#333;}
+/* ================= PROGRESS ================= */
+.progress-box{text-align:center;margin-top:40px;}
+.progress-bar{
+  width:100%;
+  height:12px;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+  margin:10px 0;
+}
+#lifeBar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  transition:.4s;
+}
+.progress-box button{
+  padding:10px 22px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  cursor:pointer;
+}
 
-    /* FOOD */
-    .food-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-      gap:15px;
-      margin:15px 0;
-    }
-    .food-card{
-      background:#fff0f6;
-      border-radius:16px;
-      padding:12px;
-      text-align:center;
-    }
-    body.dark .food-card{background:#444;}
+/* ================= FOOTER ================= */
+/* ===== FOOTER ===== */
+.footer{
+  width:100%;
+  margin-top:auto;
+  background:linear-gradient(135deg,var(--bg),#ffd6e8);
+  border-top:1px solid rgba(0,0,0,0.08);
+}
 
-    /* ROUTINE */
-    .routine-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-      gap:14px;
-    }
-    .box{
-      background:linear-gradient(135deg,#f8bbd0,#e1bee7);
-      padding:14px;
-      border-radius:14px;
-      text-align:center;
-    }
+body.dark .footer{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
 
-    /* PROGRESS */
-    .progress-box{
-      background:#fde4ec;
-      padding:20px;
-      border-radius:16px;
-    }
-    body.dark .progress-box{background:#333;}
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  text-align:center;
+}
 
-    .progress-bar{
-      height:16px;
-      background:#ddd;
-      border-radius:10px;
-      overflow:hidden;
-      margin-top:10px;
-    }
-    #lifeBar{
-      height:100%;
-      width:0%;
-      background:linear-gradient(to right,var(--primary),var(--secondary));
-      transition:0.6s;
-    }
+.footer-brand h3{
+  color:var(--primary);
+}
 
-    button{
-      margin-top:15px;
-      width:100%;
-      padding:12px;
-      border:none;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:white;
-      font-size:16px;
-      cursor:pointer;
-    }
+body.dark .footer-brand h3{
+  color:white;
+}
 
-    /* ===== FOOTER ===== */
-    footer{
-      width:100%;
-      margin-top:40px;
-      background:linear-gradient(135deg,var(--bg),#ffd6e8);
-      text-align:center;
-      padding:15px;
-      font-size:14px;
-      opacity:0.85;
-    }
-    body.dark footer{
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:white;
-    }
-  </style>
+.footer-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--text);
+  opacity:0.85;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  text-decoration:underline;
+}
+
+body.dark .footer-links a{
+  color:white;
+}
+
+.footer-note{
+  font-size:14px;
+  opacity:0.8;
+}
+
+.footer-bottom{
+  text-align:center;
+  padding:12px;
+  font-size:13px;
+  background:rgba(255,255,255,0.5);
+}
+
+body.dark .footer-bottom{
+  background:rgba(0,0,0,0.4);
+  color:white;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .footer-content{
+    flex-direction:column;
+    gap:20px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<button id="themeBtn" onclick="toggleTheme()">🌙</button>
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\logo.png" class="nav-logo">
+    <span class="nav-name">Care Her</span>
+  </div>
 
-<div class="lifestyle-card">
+  <div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="healthCheck.html">Health Check</a>
+    <a href="exercise.html">Exercise</a>
+    <a href="contact.html">Contact</a>
 
-  <h2>🌸 Healthy Lifestyle for PCOS</h2>
-  <p class="intro">Small daily habits can help manage PCOS naturally 💗</p>
+    <a href="signup.html" class="login-icon">
+      <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\woman.png">
+    </a>
 
-  <!-- DIET -->
-  <div class="section">
+    <div class="nav-clock">
+      <span id="dateSpan"></span><br>
+      <span id="timeSpan"></span>
+    </div>
+
+    <button class="theme-toggle" id="themeBtn">🌙</button>
+  </div>
+</nav>
+
+<!-- ===== CONTENT ===== -->
+<section class="lifestyle-card">
+<h2>🌸 Healthy Lifestyle for PCOS</h2>
+<p class="intro">Small daily habits can help manage PCOS naturally 💗</p>
+
+<div class="section">
+  <div class="section-head">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\image.png">
     <h3>🥗 PCOS-Friendly Diet</h3>
-    <div class="food-grid">
-      <div class="food-card">🍎 Low Sugar Fruits</div>
-      <div class="food-card">🥬 Green Vegetables</div>
-      <div class="food-card">🌾 Whole Grains</div>
-      <div class="food-card">🥜 Nuts & Seeds</div>
-    </div>
-
-    <ul class="checklist">
-      <li><input type="checkbox" class="habit"> Eat low glycemic foods</li>
-      <li><input type="checkbox" class="habit"> Avoid refined sugar</li>
-      <li><input type="checkbox" class="habit"> Fiber-rich meals</li>
-      <li><input type="checkbox" class="habit"> Healthy fats</li>
-      <li><input type="checkbox" class="habit"> Drink 2L water</li>
-    </ul>
   </div>
 
-  <!-- EXERCISE -->
-  <div class="section">
-    <h3>🏃 Physical Activity</h3>
-    <ul class="checklist">
-      <li><input type="checkbox" class="habit"> Daily walking</li>
-      <li><input type="checkbox" class="habit"> Yoga</li>
-      <li><input type="checkbox" class="habit"> Stretching</li>
-      <li><input type="checkbox" class="habit"> Light cardio</li>
-    </ul>
+  <div class="food-grid">
+    <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\fruit.png"><p>Low Sugar Fruits</p></div>
+        <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\vegetables.png"><p>Green Vegetables</p></div>
+        <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\grains.png"><p>Whole Grains</p></div>
+    <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\nuts.png"><p>Nuts & Seeds</p></div>
   </div>
 
-  <!-- SLEEP -->
-  <div class="section">
-    <h3>😴 Sleep & Stress</h3>
-    <ul class="checklist">
-      <li><input type="checkbox" class="habit"> 7–8 hrs sleep</li>
-      <li><input type="checkbox" class="habit"> Fixed routine</li>
-      <li><input type="checkbox" class="habit"> Meditation</li>
-      <li><input type="checkbox" class="habit"> Less screen time</li>
-    </ul>
-  </div>
-
-  <!-- PROGRESS -->
-  <div class="progress-box">
-    <h3>📊 Lifestyle Progress</h3>
-    <p id="progressText">0% Habits Completed</p>
-    <div class="progress-bar">
-      <div id="lifeBar"></div>
-    </div>
-    <button onclick="calculateProgress()">Check My Progress</button>
-  </div>
-
+  <ul class="checklist">
+    <li><input type="checkbox" class="habit"> Eat low glycemic foods</li>
+    <li><input type="checkbox" class="habit"> Avoid refined sugar</li>
+    <li><input type="checkbox" class="habit"> Fiber-rich meals</li>
+    <li><input type="checkbox" class="habit"> Healthy fats daily</li>
+    <li><input type="checkbox" class="habit"> 2L water intake</li>
+  </ul>
 </div>
 
-<footer>
-  © 2026 CareHer | Women’s PCOS Healthcare Support
+<div class="section">
+  <div class="section-head">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\exercise.png">
+    <h3>🏃 Exercise</h3>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" class="habit"> Walking</li>
+    <li><input type="checkbox" class="habit"> Yoga</li>
+    <li><input type="checkbox" class="habit"> Light cardio</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="section-head">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\sleep.png">
+    <h3>😴 Sleep & Stress</h3>
+  </div>
+  <ul class="checklist">
+    <li><input type="checkbox" class="habit"> 7–8 hrs sleep</li>
+    <li><input type="checkbox" class="habit"> Meditation</li>
+    <li><input type="checkbox" class="habit"> Reduce screen time</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h3>🕒 Daily Routine</h3>
+  <div class="routine-grid">
+    <div class="box">🌅 Wake Early</div>
+    <div class="box">🥗 Healthy Meals</div>
+    <div class="box">🧘 Yoga</div>
+    <div class="box">💧 Hydration</div>
+    <div class="box">😴 Sleep</div>
+    <div class="box">💁‍♀️ Walk Periodically</div>
+  </div>
+</div>
+
+<div class="progress-box">
+  <h3>📊 My Lifestyle Progress</h3>
+  <p id="progressText">0% Habits Completed</p>
+  <div class="progress-bar"><div id="lifeBar"></div></div>
+  <button onclick="calculateProgress()">Check My Progress</button>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>🌸 Care Her</h3>
+      <p>PCOD & PCOS Awareness Platform</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="healthCheck.html">Health Check</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-note">💗 Your health, our priority</div>
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Care Her. All rights reserved.
+  </div>
 </footer>
-
 <script>
+/* CLOCK */
+function updateClock(){
+  const now=new Date();
+  dateSpan.innerText=now.toDateString();
+  timeSpan.innerText=now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+/* THEME */
+themeBtn.onclick=()=>document.body.classList.toggle("dark");
+
+/* PROGRESS */
+function calculateProgress(){
   const habits=document.querySelectorAll(".habit");
-  const progressText=document.getElementById("progressText");
-  const lifeBar=document.getElementById("lifeBar");
+  let done=[...habits].filter(h=>h.checked).length;
+  let percent=Math.round((done/habits.length)*100);
+  lifeBar.style.width=percent+"%";
+  progressText.innerText=percent+"% Habits Completed";
+}
 
-  habits.forEach((box,i)=>{
-    const saved=localStorage.getItem("pcosHabit"+i);
-    if(saved==="true") box.checked=true;
-
-    box.addEventListener("change",()=>{
-      localStorage.setItem("pcosHabit"+i,box.checked);
-      autoUpdate();
-    });
-  });
-
-  function calculateProgress(){
-    autoUpdate(true);
-  }
-
-  function autoUpdate(showAlert=false){
-    let done=0;
-    habits.forEach(h=>{if(h.checked) done++;});
-    const percent=Math.round((done/habits.length)*100);
-
-    lifeBar.style.width=percent+"%";
-    progressText.innerText=percent+"% Healthy Habits Completed";
-
-    if(showAlert){
-      if(percent>=80) alert("🌟 Excellent progress!");
-      else if(percent>=40) alert("👍 Good going, stay consistent!");
-      else alert("💗 Start slow, every step matters!");
-    }
-  }
-
-  autoUpdate();
-
-  function toggleTheme(){
-    document.body.classList.toggle("dark");
-  }
+/* YEAR FIX */
+document.getElementById("year").innerText=new Date().getFullYear();
 </script>
 
 </body>

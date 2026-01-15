@@ -118,46 +118,81 @@
 
     /* ===== FOOTER ===== */
     .footer{
-      width:100%;
-      margin-top:auto;
-      background:linear-gradient(135deg,var(--bg),#ffd6e8);
-    }
-    body.dark .footer{
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:white;
-    }
-    .footer-content{
-      max-width:1100px;
-      margin:auto;
-      padding:30px 20px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      text-align:center;
-    }
-    .footer-links a{
-      margin:0 10px;
-      text-decoration:none;
-      color:inherit;
-    }
-    .footer-bottom{
-      text-align:center;
-      padding:12px;
-      font-size:13px;
-      opacity:0.8;
-    }
+  width:100%;
+  margin-top:100px;   
+  background:linear-gradient(135deg,var(--bg),#ffd6e8);
+  border-top:1px solid rgba(0,0,0,0.08);
+}
 
-    #nextBtn{
-      margin-top:15px;
-      padding:12px 26px;
-      border:none;
-      border-radius:22px;
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:white;
-      cursor:pointer;
-      font-size:16px;
-    }
-    #nextBtn:hover{ opacity:0.9; }
+
+body.dark .footer{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.footer-brand h3{
+  color:var(--primary);
+}
+
+body.dark .footer-brand h3{
+  color:white;
+}
+
+.footer-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--text);
+  opacity:0.85;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  text-decoration:underline;
+}
+
+body.dark .footer-links a{
+  color:white;
+}
+
+.footer-note{
+  font-size:14px;
+  opacity:0.8;
+}
+
+.footer-bottom{
+  text-align:center;
+  padding:12px;
+  font-size:13px;
+  background:rgba(255,255,255,0.5);
+}
+
+body.dark .footer-bottom{
+  background:rgba(0,0,0,0.4);
+  color:white;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .footer-content{
+    flex-direction:column;
+    gap:20px;
+  }
+}
   </style>
 </head>
 
@@ -188,20 +223,22 @@
 
 <footer class="footer">
   <div class="footer-content">
-    <div>
-      <h3>CareHer 🌸</h3>
-      <p>Women's Health Platform</p>
+    <div class="footer-brand">
+      <h3>Women health care platform</h3>
+      <p>PCOD & PCOS Awareness Platform</p>
     </div>
+
     <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#">PCOS</a>
-      <a href="#">Diet</a>
-      <a href="#">Doctors</a>
+      <a href="index.html">Home</a>
+      <a href="healthCheck.html">Health Check</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
     </div>
+
+    <div class="footer-note">💗 Your health, our priority</div>
   </div>
   <div class="footer-bottom">
-    © 2026 CareHer. All rights reserved.
-  </div>
+    &copy; 2026 CareHer. All rights reserved.
 </footer>
 
 <script>
