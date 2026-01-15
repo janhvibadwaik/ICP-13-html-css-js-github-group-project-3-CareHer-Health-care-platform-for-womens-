@@ -90,7 +90,6 @@ body {
   font-weight: 700;
   color: #a81f5a;
 }
-/* ===== ENTER NAME TITLE ===== */
 #askName {
   font-size: 52px;
   font-weight: 900;
@@ -123,7 +122,6 @@ body {
   box-shadow: 0 0 18px rgba(234, 16, 104, 0.5);
 }
 
-/* ===== SUBMIT BUTTON ===== */
 .welcome-container button {
   margin-top: 18px;
   padding: 12px 26px;
@@ -140,7 +138,6 @@ body {
   transform: scale(1.05);
 }
 
-/* ===== WELCOME MESSAGE ===== */
 #welcomeMessage {
   margin-top: 40px;
   font-size: 46px;
@@ -150,7 +147,6 @@ body {
   text-shadow: 2px 2px 6px rgba(168, 31, 90, 0.2);
 }
 
-/* Highlight name */
 #welcomeMessage span {
   color: #ea1068;
   font-size: 52px;
