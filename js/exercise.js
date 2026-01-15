@@ -1,3 +1,12 @@
+window.onload= function(){
+            const localStorageTheme=localStorage.getItem("theme");
+            if (localStorageTheme === "dark"){
+                toggleDark();
+            }else{
+                toggleLight();
+            }
+        }
+
 function displayButterflyPoseBenefits() {
         const exeInfoContainer = document.getElementById("exe-flashcard-container");
         exeInfoContainer.innerHTML = `<div class="exe-flashcard"><img src="../images/butterfly.png" class="exe-flashcard-img">
@@ -105,6 +114,62 @@ function displayWarriorPoseBenefits() {
         const exeInfoContainer = document.getElementById("exe-flashcard-container");
         exeInfoContainer.innerHTML = "";
     }
+
+function toggleTheme(){
+            const toggleBtn=document.getElementById("toggle-btn");
+            const localStorageTheme=localStorage.getItem("theme");
+            if(localStorageTheme === "dark"){
+                toggleLight();
+                localStorage.setItem("theme","light");
+                toggleBtn.innerText="☀️Dark";
+            }else{
+                toggleDark();
+                localStorage.setItem("theme","dark");
+                toggleBtn.innerText="🌙Light";
+            }
+        }
+        function toggleDark(){
+            const heading=document.getElementById("heading");
+            const exeCards=document.getElementsByClassName("exe-cards");
+         const body=document.getElementById("body");
+          const toggleBtn=document.getElementById("toggle-btn");
+          const menu =document.getElementsByClassName("menu-1");
+          const navbar= document.getElementById("navbar"); 
+            document.body.style.backgroundColor="#333333";
+            body.style.color="white";
+            navbar.style.backgroundColor="#000000";
+            toggleBtn.style.backgroundColor="black";
+            toggleBtn.style.border="2px solid white";
+            toggleBtn.style.color="white";
+            for (let i = 0; i < menu.length; i++) {
+             menu[i].style.color = "white";} 
+             heading.style.color="#fff"; 
+            for (let i = 0; i < exeCards.length; i++) {
+        exeCards[i].style.color = "white";
+        exeCards[i].style.backgroundColor="#262626";
+        exeCards[i].style.boxShadow = "0 1px 5px #fff";}          
+        }
+        function toggleLight(){
+            const heading=document.getElementById("heading");
+            const exeCards=document.getElementsByClassName("exe-cards");
+           const body=document.getElementById("body");
+          const toggleBtn=document.getElementById("toggle-btn");
+          const menu =document.getElementsByClassName("menu-1");
+          const navbar= document.getElementById("navbar");
+            body.style.backgroundColor="#fff7fb";
+            body.style.color="black";
+            navbar.style.backgroundColor="#ffbfec";
+            toggleBtn.style.border="2px solid #d85590";
+            toggleBtn.style.color="#d85590";
+            toggleBtn.style.backgroundColor="#ffbfec";
+            for (let i = 0; i < menu.length; i++) {
+        menu[i].style.color = "#d85590";};
+        heading.style.color="#c93779"; 
+            for (let i = 0; i < exeCards.length; i++) {
+        exeCards[i].style.color = "#c93779";
+        exeCards[i].style.backgroundColor="#fff";
+        exeCards[i].style.boxShadow = "0 1px 5px #f48fb1";}           
+        }
 
 
 function updateClock() {

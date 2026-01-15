@@ -8,7 +8,7 @@
   margin: 10px auto;
   padding: 10px;
   max-width: 500px;
- box-shadow: 0 2px 10px #f48fb1;
+ 
 }
 .form-container.active{
   display: none;
@@ -60,11 +60,6 @@
   padding: 8px;
 }
 
-.btn:hover {
-  background:#cc0052 ;
-  box-shadow: 0 2px 10px #f48fb1;
-}
-
 .profile-heading{
   display: flex;
   flex-wrap: wrap;
@@ -90,9 +85,6 @@
     cursor:  pointer;
   height: 25px;
 }
-.password-container:focus{
-  border: 2px solid black;
-}
 .btn1{
   font-size: 16px;
   background-color:#cc0052;
@@ -102,4 +94,20 @@
   cursor: pointer;
   transition: 0.3s;
   padding: 5px 10px;
+}
+.toggle-btn{
+  display: block;
+  font-size: 16px;
+  background-color:#ffbfec;
+  color: #d85590;
+  border: 2px solid #d85590;
+  border-radius: 5px; ;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 5px 7px;
+}
+#info{
+  margin-top: -12px; 
+  font-size: 14px; 
+  text-align: center;
 }

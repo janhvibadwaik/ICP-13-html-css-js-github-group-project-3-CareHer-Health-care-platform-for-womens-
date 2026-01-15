@@ -79,4 +79,107 @@ function displayUserProfileAndHideForm(){
     }
 function logOut(){
       window.location.href="login.html";
-      }    
+      } 
+window.onload= function(){
+            const localStorageTheme=localStorage.getItem("theme");
+            if (localStorageTheme === "dark"){
+                toggleDark();
+            }else{
+                toggleLight();
+            }
+        }
+function toggleTheme(){
+            const toggleBtn=document.getElementById("toggle-btn");
+            const localStorageTheme=localStorage.getItem("theme");
+            if(localStorageTheme === "dark"){
+                toggleLight();
+                localStorage.setItem("theme","light");
+                toggleBtn.innerText="☀️Dark";
+            }else{
+                toggleDark();
+                localStorage.setItem("theme","dark");
+                toggleBtn.innerText="🌙Light";
+            }
+        }
+        function toggleDark(){
+          const firstName=document.getElementById("firstname");
+          const lastName=document.getElementById("lastname");
+          const contact=document.getElementById("phone-number")
+          const age=document.getElementById("age");
+          const passContainer=document.getElementById("pass-container");
+          const body=document.getElementById("body");
+          const toggleBtn=document.getElementById("toggle-btn");
+          const link=document.getElementById("link");
+          const btn =document.getElementById("btn");
+          const menu =document.getElementsByClassName("menu-1");
+          const navbar= document.getElementById("navbar");
+          const formContainer=document.getElementById("form-container");
+           const email1=document.getElementById("email");
+           const pass=document.getElementById("password"); 
+            document.body.style.backgroundColor="#333333";
+            body.style.color="white"; 
+            email1.style.backgroundColor="#333333";
+            email1.style.color="#fff"; 
+            pass.style.backgroundColor="#333333";
+            pass.style.color="#fff";
+            formContainer.style.backgroundColor="#262626";
+            navbar.style.backgroundColor="#000000";
+            btn.style.backgroundColor="#000000";
+            link.style.color="white";
+            toggleBtn.style.backgroundColor="black";
+            toggleBtn.style.border="2px solid white";
+            toggleBtn.style.color="white";
+            passContainer.style.backgroundColor="#333333";
+            firstName.style.backgroundColor="#333333";
+            firstName.style.color="#fff";
+            lastName.style.backgroundColor="#333333";
+            lastName.style.color="#fff";
+            contact.style.backgroundColor="#333333";
+            contact.style.color="#fff";
+            age.style.backgroundColor="#333333";
+            age.style.color="#fff";
+            for (let i = 0; i < menu.length; i++) {
+        menu[i].style.color = "white";
+    }
+                  
+        }
+        function toggleLight(){
+          const firstName=document.getElementById("firstname");
+          const lastName=document.getElementById("lastname");
+          const contact=document.getElementById("phone-number")
+          const age=document.getElementById("age");
+         const passContainer=document.getElementById("pass-container");
+         const body=document.getElementById("body");
+          const toggleBtn=document.getElementById("toggle-btn");
+          const link=document.getElementById("link");
+          const btn =document.getElementById("btn");
+          const menu =document.getElementsByClassName("menu-1");
+          const navbar= document.getElementById("navbar");
+          const formContainer=document.getElementById("form-container");
+          const email1=document.getElementById("email");
+           const pass=document.getElementById("password");
+            body.style.backgroundColor="#fff7fb";
+             email1.style.backgroundColor="#fff7fb";
+            pass.style.backgroundColor="#fff7fb";
+            body.style.color="black";
+            formContainer.style.backgroundColor="white";
+            navbar.style.backgroundColor="#ffbfec";
+            btn.style.backgroundColor="#cc0052";
+            link.style.color="black";
+            toggleBtn.style.border="2px solid #d85590";
+            toggleBtn.style.color="#d85590";
+            toggleBtn.style.backgroundColor="#ffbfec";
+            passContainer.style.backgroundColor="#fff7fb";
+            firstName.style.backgroundColor="#fff7fb";
+            firstName.style.color="#000";
+            lastName.style.backgroundColor="#fff7fb";
+            lastName.style.color="#000";
+            contact.style.backgroundColor="#fff7fb";
+            contact.style.color="#000";
+            age.style.backgroundColor="#fff7fb";
+            age.style.color="#000";
+            for (let i = 0; i < menu.length; i++) {
+        menu[i].style.color = "#d85590";
+    };
+           
+        }   

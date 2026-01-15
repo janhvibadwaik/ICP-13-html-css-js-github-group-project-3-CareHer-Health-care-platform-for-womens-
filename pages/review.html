@@ -6,25 +6,26 @@
     <link rel="stylesheet" href="../css/review.css">
     <script src="../js/review.js"></script>
 </head>
-<body>
-   <div class="navbar">
+<body class="body" id="body">
+   <div class="navbar" id="navbar">
     <img src="../images/logo.png" alt="logo" class="nav-logo"/>
     <span class="nav-name">Care Her</span>
     <div class="menu">
-      <a href="../index.html">Home</a>
-      <a href="healthCheck.html">Health Check</a>
-      <a href="exercise.html">Exercise</a>
-      <a href="Contact.html">Contact</a>
-      <a href="review.html">Reviews</a>
-      <a href="signup.html"><img src="../images/woman.png" alt="login"/></a>
+      <a href="../index.html" class="menu-1">Home</a>
+      <a href="healthCheck.html" class="menu-1">Health Check</a>
+      <a href="exercise.html" class="menu-1">Exercise</a>
+      <a href="Contact.html" class="menu-1">Contact</a>
+      <a href="review.html" class="menu-1">Reviews</a>
+      <a href="signup.html" class="menu-1"><img src="../images/woman.png" alt="login"/></a>
       <div class="nav-clock">
         <span id="dateSpan"></span>
         <span id="timeSpan"></span>
       </div>
+      <button class="toggle-btn" id="toggle-btn" onclick="toggleTheme()">☀️Dark</button>
     </div>
     </div> 
     <div class="review-card-container" id="review-card-container">
-        <div class="review-card">
+        <div class="review-card" id="review-card">
          <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
          <div class="date">Date: 2026-01-10
          </div>
@@ -39,7 +40,7 @@
              comment:<br>Great experience overall.
          </div>
         </div>
-        <div class="review-card">
+        <div class="review-card" id="review-card">
          <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
          <div class="date">Date: 2026-01-08
          </div>
@@ -56,7 +57,7 @@
         </div>
     </div>
     <div class="container" id="container">
-     <div class="panel">
+     <div class="panel" id="panel">
         <h2>Submit Your Review</h2>
         <form id="reviewForm">
             <div class="input-container">
@@ -81,7 +82,7 @@
                 <label  class="field-label">Comments</label>
                 <textarea class="textarea" id="comments" rows="3"></textarea>
             </div>
-            <button class="submit-btn" onclick="submitForm()">Post review</button>
+            <button class="submit-btn" id="btn" onclick="submitForm()">Post review</button>
         </form>
         
      </div>
