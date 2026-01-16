@@ -4,12 +4,13 @@ html, body {
   background: transparent;
   font-family: Arial, sans-serif;
   height: 100%;
+  width:100%;
 }
 
 
 .chat-container {
   width: 380px;
-  height: 480px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background: white;

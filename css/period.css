@@ -263,15 +263,17 @@ button:hover {
 /* CHATBOT POPUP */
 #chatbot-popup {
   position: fixed;
-  bottom: 100px;
+  bottom: 90px;
   right: 20px;
-  width: 360px;
-  height: 480px;
+  width: 420px;
+  height: 70vh;
+  max-height: 520px;
+  min-height: 380px;
   background: white;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   display: none;
-  z-index: 2000;
+  z-index: 3000;
   overflow: hidden;
 }
 
