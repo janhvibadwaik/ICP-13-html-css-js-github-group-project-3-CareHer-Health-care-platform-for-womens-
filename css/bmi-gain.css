@@ -63,15 +63,24 @@ header {
 }
 
 .cart-btn {
-    background: #d85590;
+    background:#d85590;
     color: white;
     border: none;
     cursor: pointer;
 }
+
+.cart-btn:hover {
+    background:#682042 ;
+    transition: 0.3s;
+}
 .amazon-btn {
-    background: #ff00aa;
+    background: #28ac80;
     color: black;
 }
+.amazon-btn:hover {
+    background: #0d6b5b;
+    transition: 0.3s;
+  }
 
 .cart-modal {
     display: none;
