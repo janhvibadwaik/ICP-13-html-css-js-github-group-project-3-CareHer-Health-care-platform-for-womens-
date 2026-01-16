@@ -46,11 +46,11 @@ function toggleTheme(){
             if(localStorageTheme === "dark"){
                 toggleLight();
                 localStorage.setItem("theme","light");
-                toggleBtn.innerText="☀️Dark";
+                toggleBtn.innerText="🌙";
             }else{
                 toggleDark();
                 localStorage.setItem("theme","dark");
-                toggleBtn.innerText="🌙Light";
+                toggleBtn.innerText="☀️";
             }
         }
         function toggleDark(){
@@ -59,7 +59,6 @@ function toggleTheme(){
           const toggleBtn=document.getElementById("toggle-btn");
           const link=document.getElementById("link");
           const btn =document.getElementById("btn");
-          const menu =document.getElementsByClassName("menu-1");
           const navbar= document.getElementById("navbar");
           const formContainer=document.getElementById("form-container");
            const email1=document.getElementById("email");
@@ -71,16 +70,12 @@ function toggleTheme(){
             pass.style.backgroundColor="#333333";
             pass.style.color="#fff";
             formContainer.style.backgroundColor="#262626";
-            navbar.style.backgroundColor="#000000";
             btn.style.backgroundColor="#000000";
             link.style.color="white";
-            toggleBtn.style.backgroundColor="black";
-            toggleBtn.style.border="2px solid white";
-            toggleBtn.style.color="white";
+            navbar.style.backgroundColor="#121212";
+            toggleBtn.style.backgroundColor="#000";
+            toggleBtn.style.color="white"; 
             passContainer.style.backgroundColor="#333333";
-            for (let i = 0; i < menu.length; i++) {
-        menu[i].style.color = "white";
-    }
                   
         }
         function toggleLight(){
@@ -89,7 +84,6 @@ function toggleTheme(){
           const toggleBtn=document.getElementById("toggle-btn");
           const link=document.getElementById("link");
           const btn =document.getElementById("btn");
-          const menu =document.getElementsByClassName("menu-1");
           const navbar= document.getElementById("navbar");
           const formContainer=document.getElementById("form-container");
           const email1=document.getElementById("email");
@@ -104,13 +98,9 @@ function toggleTheme(){
             navbar.style.backgroundColor="#ffbfec";
             btn.style.backgroundColor="#cc0052";
             link.style.color="black";
-            toggleBtn.style.border="2px solid #d85590";
             toggleBtn.style.color="#d85590";
-            toggleBtn.style.backgroundColor="#ffbfec";
+            toggleBtn.style.backgroundColor="#fff";
             passContainer.style.backgroundColor="#fff7fb";
-            for (let i = 0; i < menu.length; i++) {
-        menu[i].style.color = "#d85590";
-    };
            
         }
         

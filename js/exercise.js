@@ -121,11 +121,11 @@ function toggleTheme(){
             if(localStorageTheme === "dark"){
                 toggleLight();
                 localStorage.setItem("theme","light");
-                toggleBtn.innerText="☀️Dark";
+                toggleBtn.innerText="🌙";
             }else{
                 toggleDark();
                 localStorage.setItem("theme","dark");
-                toggleBtn.innerText="🌙Light";
+                toggleBtn.innerText="☀️";
             }
         }
         function toggleDark(){
@@ -133,16 +133,12 @@ function toggleTheme(){
             const exeCards=document.getElementsByClassName("exe-cards");
          const body=document.getElementById("body");
           const toggleBtn=document.getElementById("toggle-btn");
-          const menu =document.getElementsByClassName("menu-1");
           const navbar= document.getElementById("navbar"); 
             document.body.style.backgroundColor="#333333";
             body.style.color="white";
-            navbar.style.backgroundColor="#000000";
-            toggleBtn.style.backgroundColor="black";
-            toggleBtn.style.border="2px solid white";
-            toggleBtn.style.color="white";
-            for (let i = 0; i < menu.length; i++) {
-             menu[i].style.color = "white";} 
+            navbar.style.backgroundColor="#121212";
+            toggleBtn.style.backgroundColor="#000";
+            toggleBtn.style.color="white"; 
              heading.style.color="#fff"; 
             for (let i = 0; i < exeCards.length; i++) {
         exeCards[i].style.color = "white";
@@ -154,16 +150,12 @@ function toggleTheme(){
             const exeCards=document.getElementsByClassName("exe-cards");
            const body=document.getElementById("body");
           const toggleBtn=document.getElementById("toggle-btn");
-          const menu =document.getElementsByClassName("menu-1");
           const navbar= document.getElementById("navbar");
             body.style.backgroundColor="#fff7fb";
             body.style.color="black";
             navbar.style.backgroundColor="#ffbfec";
-            toggleBtn.style.border="2px solid #d85590";
-            toggleBtn.style.color="#d85590";
-            toggleBtn.style.backgroundColor="#ffbfec";
-            for (let i = 0; i < menu.length; i++) {
-        menu[i].style.color = "#d85590";};
+            toggleBtn.style.color="#c93779;";
+            toggleBtn.style.backgroundColor="#fff";
         heading.style.color="#c93779"; 
             for (let i = 0; i < exeCards.length; i++) {
         exeCards[i].style.color = "#c93779";

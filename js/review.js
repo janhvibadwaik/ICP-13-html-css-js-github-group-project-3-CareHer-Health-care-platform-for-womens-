@@ -85,11 +85,11 @@ function toggleTheme(){
             if(localStorageTheme === "dark"){
                 toggleLight();
                 localStorage.setItem("theme","light");
-                toggleBtn.innerText="☀️Dark";
+                toggleBtn.innerText="🌙";
             }else{
                 toggleDark();
                 localStorage.setItem("theme","dark");
-                toggleBtn.innerText="🌙Light";
+                toggleBtn.innerText="☀️";
             }
         }
         function toggleDark(){
@@ -99,14 +99,12 @@ function toggleTheme(){
             const reviewCard=document.getElementsByClassName("review-card");
          const body=document.getElementById("body");
           const toggleBtn=document.getElementById("toggle-btn");
-          const menu =document.getElementsByClassName("menu-1");
           const navbar= document.getElementById("navbar"); 
             document.body.style.backgroundColor="#333333";
             body.style.color="white";
-            navbar.style.backgroundColor="#000000";
-            toggleBtn.style.backgroundColor="black";
-            toggleBtn.style.border="2px solid white";
-            toggleBtn.style.color="white";
+            navbar.style.backgroundColor="#121212";
+            toggleBtn.style.backgroundColor="#000";
+            toggleBtn.style.color="white"; 
             panel.style.backgroundColor="#262626";
             btn.style.backgroundColor="#000";
             btn.style.color="#fff";
@@ -119,9 +117,6 @@ function toggleTheme(){
         reviewCard[i].style.backgroundColor="#262626";
         reviewCard[i].style.boxShadow="0 2px 4px #fff";       
     }
-            for (let i = 0; i < menu.length; i++) {
-        menu[i].style.color = "white";
-    }
                   
         }
         function toggleLight(){
@@ -131,14 +126,13 @@ function toggleTheme(){
             const reviewCard=document.getElementsByClassName("review-card");
          const body=document.getElementById("body");
           const toggleBtn=document.getElementById("toggle-btn");
-          const menu =document.getElementsByClassName("menu-1");
+          
           const navbar= document.getElementById("navbar");
             body.style.backgroundColor="#fff7fb";
             body.style.color="black";
-            navbar.style.backgroundColor="#ffbfec";
-            toggleBtn.style.border="2px solid #d85590";
-            toggleBtn.style.color="#d85590";
-            toggleBtn.style.backgroundColor="#ffbfec";
+           navbar.style.backgroundColor="#ffbfec";
+            toggleBtn.style.color="#c93779;";
+            toggleBtn.style.backgroundColor="#fff";
             panel.style.backgroundColor="#fff";
             btn.style.backgroundColor="#c93779";
             btn.style.color="#fff";
@@ -151,8 +145,5 @@ function toggleTheme(){
         reviewCard[i].style.backgroundColor="#fff";
         reviewCard[i].style.boxShadow="0 2px 4px #c93779";       
     }
-            for (let i = 0; i < menu.length; i++) {
-        menu[i].style.color = "#d85590";
-    };
            
         }
