@@ -93,6 +93,7 @@ function toggleTheme(){
             }
         }
         function toggleDark(){
+            const footer=document.getElementById("footer");
             const btn=document.getElementById("btn");
             const textArea=document.getElementsByClassName("textarea");
             const panel=document.getElementById("panel");
@@ -108,6 +109,7 @@ function toggleTheme(){
             panel.style.backgroundColor="#262626";
             btn.style.backgroundColor="#000";
             btn.style.color="#fff";
+            footer.style.backgroundColor="#121212";
             for (let i = 0; i < textArea.length; i++) {
         textArea[i].style.color = "white";
         textArea[i].style.backgroundColor="#333333";       
@@ -120,6 +122,7 @@ function toggleTheme(){
                   
         }
         function toggleLight(){
+            const footer=document.getElementById("footer");
             const btn=document.getElementById("btn");
             const textArea=document.getElementsByClassName("textarea");
             const panel=document.getElementById("panel");
@@ -136,6 +139,7 @@ function toggleTheme(){
             panel.style.backgroundColor="#fff";
             btn.style.backgroundColor="#c93779";
             btn.style.color="#fff";
+            footer.style.backgroundColor="#ffe6f2";
             for (let i = 0; i < textArea.length; i++) {
          textArea[i].style.color = "#000";
          textArea[i].style.backgroundColor="#fff7fb";       

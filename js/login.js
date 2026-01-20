@@ -54,6 +54,7 @@ function toggleTheme(){
             }
         }
         function toggleDark(){
+            const footer=document.getElementById("footer");
          const passContainer=document.getElementById("pass-container");
          const body=document.getElementById("body");
           const toggleBtn=document.getElementById("toggle-btn");
@@ -76,9 +77,11 @@ function toggleTheme(){
             toggleBtn.style.backgroundColor="#000";
             toggleBtn.style.color="white"; 
             passContainer.style.backgroundColor="#333333";
+            footer.style.backgroundColor="#121212";
                   
         }
         function toggleLight(){
+            const footer=document.getElementById("footer");
          const passContainer=document.getElementById("pass-container");
          const body=document.getElementById("body");
           const toggleBtn=document.getElementById("toggle-btn");
@@ -101,6 +104,7 @@ function toggleTheme(){
             toggleBtn.style.color="#d85590";
             toggleBtn.style.backgroundColor="#fff";
             passContainer.style.backgroundColor="#fff7fb";
+            footer.style.backgroundColor="#ffe6f2";
            
         }
         

@@ -129,6 +129,7 @@ function toggleTheme(){
             }
         }
         function toggleDark(){
+            const footer=document.getElementById("footer");
             const heading=document.getElementById("heading");
             const exeCards=document.getElementsByClassName("exe-cards");
          const body=document.getElementById("body");
@@ -139,13 +140,15 @@ function toggleTheme(){
             navbar.style.backgroundColor="#121212";
             toggleBtn.style.backgroundColor="#000";
             toggleBtn.style.color="white"; 
-             heading.style.color="#fff"; 
+             heading.style.color="#fff";
+             footer.style.backgroundColor="#121212"; 
             for (let i = 0; i < exeCards.length; i++) {
         exeCards[i].style.color = "white";
         exeCards[i].style.backgroundColor="#262626";
         exeCards[i].style.boxShadow = "0 1px 5px #fff";}          
         }
         function toggleLight(){
+            const footer=document.getElementById("footer");
             const heading=document.getElementById("heading");
             const exeCards=document.getElementsByClassName("exe-cards");
            const body=document.getElementById("body");
@@ -156,6 +159,7 @@ function toggleTheme(){
             navbar.style.backgroundColor="#ffbfec";
             toggleBtn.style.color="#c93779;";
             toggleBtn.style.backgroundColor="#fff";
+             footer.style.backgroundColor="#ffe6f2";
         heading.style.color="#c93779"; 
             for (let i = 0; i < exeCards.length; i++) {
         exeCards[i].style.color = "#c93779";

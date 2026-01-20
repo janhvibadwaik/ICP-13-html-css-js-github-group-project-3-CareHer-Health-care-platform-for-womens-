@@ -102,6 +102,7 @@ function toggleTheme(){
             }
         }
         function toggleDark(){
+          const footer=document.getElementById("footer");
           const firstName=document.getElementById("firstname");
           const lastName=document.getElementById("lastname");
           const contact=document.getElementById("phone-number")
@@ -136,10 +137,12 @@ function toggleTheme(){
             contact.style.color="#fff";
             age.style.backgroundColor="#333333";
             age.style.color="#fff";
+            footer.style.backgroundColor="#121212";
     
                   
         }
         function toggleLight(){
+          const footer=document.getElementById("footer");
           const firstName=document.getElementById("firstname");
           const lastName=document.getElementById("lastname");
           const contact=document.getElementById("phone-number")
@@ -172,6 +175,7 @@ function toggleTheme(){
             contact.style.color="#000";
             age.style.backgroundColor="#fff7fb";
             age.style.color="#000";
+            footer.style.backgroundColor="#ffe6f2";
             
            
         }   
