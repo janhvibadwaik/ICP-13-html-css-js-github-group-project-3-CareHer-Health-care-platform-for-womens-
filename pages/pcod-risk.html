@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ===== THEME VARIABLES ===== */
+
 :root{
   --primary:#d63384;
   --secondary:#ff6fae;
@@ -22,7 +22,6 @@ body.dark{
   --text:#eee;
 }
 
-/* ===== GLOBAL ===== */
 *{box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 body{
   margin:0;
@@ -36,7 +35,7 @@ body{
   transition:.3s;
 }
 
-/* ===== DARK MODE BUTTON ===== */
+
 #themeBtn{
   position:fixed;
   top:15px;
@@ -52,7 +51,7 @@ body{
   z-index:1000;
 }
 
-/* ===== QUIZ CARD ===== */
+
 .card{
   width:100%;
   max-width:380px;
@@ -133,13 +132,13 @@ ul{text-align:left;font-size:14px;padding-left:18px;}
   color:white;
 }
 
-/* Risk result spacing */
+
 #resultBox{
   margin-top:25px;
   padding-top:15px;
 }
 
-/* ===== FOOTER ===== */
+
 .footer{
   width:100%;
   background:#ffe6f2;
@@ -177,7 +176,7 @@ ul{text-align:left;font-size:14px;padding-left:18px;}
   padding-top:10px;
 }
 
-/* ===== DARK MODE ===== */
+
 body.dark .navbar{background:#121212;}
 body.dark .nav-name,
 body.dark .menu a,
@@ -188,7 +187,7 @@ body.dark .footer *{color:#ff9fcf;}
 body.dark .footer-bottom{border-top:1px solid #2a2a2a;}
 body.dark .theme-toggle{background:#000;color:white;}
 
-/* ===== MOBILE ===== */
+
 @media(max-width:600px){
   .flex-box{flex-direction:column;}
   .menu{gap:16px;}
@@ -257,7 +256,7 @@ body.dark .theme-toggle{background:#000;color:white;}
 </footer>
 
 <script>
-/* ===== DARK MODE ===== */
+
 const themeBtn=document.getElementById("themeBtn");
 if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add("dark");
@@ -271,7 +270,7 @@ themeBtn.onclick=()=>{
     document.body.classList.contains("dark")?"☀️":"🌙";
 };
 
-/* ===== QUIZ LOGIC ===== */
+
 const questions=[
   "Do you have irregular periods?",
   "Do you gain weight easily?",
