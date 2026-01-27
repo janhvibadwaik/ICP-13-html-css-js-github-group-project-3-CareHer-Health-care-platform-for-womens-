@@ -2,11 +2,14 @@ window.onload= function(){
         const container = document.getElementById("container");
         const savedData = localStorage.getItem("reviewData");
      const reviews = document.getElementById("review-card-container");
+     const localStorageTheme=localStorage.getItem("theme");
+            if (localStorageTheme === "dark"){
+                toggleTheme();
+            }
       if(savedData){
         container.innerHTML="";
         const reviewData = JSON.parse(savedData);
         reviews.innerHTML+=`<div class="review-card">
-        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
         <div class="date">Date:${reviewData.date}</div>
         <div class="card-name">
             Name:${reviewData.name}
@@ -18,17 +21,11 @@ window.onload= function(){
         <div class="card-comment">
             comment:<br>${reviewData.comment}
         </div>
+        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
     </div>`;
       }return;
 }
-window.onload= function(){
-            const localStorageTheme=localStorage.getItem("theme");
-            if (localStorageTheme === "dark"){
-                toggleDark();
-            }else{
-                toggleLight();
-            }
-        }
+
 
 function submitForm(){
         const container = document.getElementById("container");
@@ -49,7 +46,6 @@ function submitForm(){
       localStorage.setItem("reviewData", JSON.stringify(reviewData));
       container.innerHTML="";
       reviews.innerHTML+=`<div class="review-card" id="review-card">
-        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
         <div class="date">Date:${reviewData.date}</div>
         <div class="card-name">
             Name:${reviewData.name}
@@ -61,6 +57,7 @@ function submitForm(){
         <div class="card-comment">
             comment:<br>${reviewData.comment}
         </div>
+        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
     </div>`;       
 }
 function displayFormDeleteReview(){
@@ -79,71 +76,21 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 1000);
+
 function toggleTheme(){
             const toggleBtn=document.getElementById("toggle-btn");
-            const localStorageTheme=localStorage.getItem("theme");
-            if(localStorageTheme === "dark"){
-                toggleLight();
-                localStorage.setItem("theme","light");
-                toggleBtn.innerText="🌙";
-            }else{
-                toggleDark();
-                localStorage.setItem("theme","dark");
-                toggleBtn.innerText="☀️";
-            }
-        }
-        function toggleDark(){
-            const btn=document.getElementById("btn");
-            const textArea=document.getElementsByClassName("textarea");
-            const panel=document.getElementById("panel");
-            const reviewCard=document.getElementsByClassName("review-card");
-         const body=document.getElementById("body");
-          const toggleBtn=document.getElementById("toggle-btn");
-          const navbar= document.getElementById("navbar"); 
-            document.body.style.backgroundColor="#333333";
-            body.style.color="white";
-            navbar.style.backgroundColor="#121212";
-            toggleBtn.style.backgroundColor="#000";
-            toggleBtn.style.color="white"; 
-            panel.style.backgroundColor="#262626";
-            btn.style.backgroundColor="#000";
-            btn.style.color="#fff";
-            for (let i = 0; i < textArea.length; i++) {
-        textArea[i].style.color = "white";
-        textArea[i].style.backgroundColor="#333333";       
-    }
-            for (let i = 0; i < reviewCard.length; i++) {
-        reviewCard[i].style.color = "white";
-        reviewCard[i].style.backgroundColor="#262626";
-        reviewCard[i].style.boxShadow="0 2px 4px #fff";       
-    }
-                  
-        }
-        function toggleLight(){
-            const btn=document.getElementById("btn");
-            const textArea=document.getElementsByClassName("textarea");
-            const panel=document.getElementById("panel");
-            const reviewCard=document.getElementsByClassName("review-card");
-         const body=document.getElementById("body");
-          const toggleBtn=document.getElementById("toggle-btn");
-          
-          const navbar= document.getElementById("navbar");
-            body.style.backgroundColor="#fff7fb";
-            body.style.color="black";
-           navbar.style.backgroundColor="#ffbfec";
-            toggleBtn.style.color="#c93779;";
-            toggleBtn.style.backgroundColor="#fff";
-            panel.style.backgroundColor="#fff";
-            btn.style.backgroundColor="#c93779";
-            btn.style.color="#fff";
-            for (let i = 0; i < textArea.length; i++) {
-         textArea[i].style.color = "#000";
-         textArea[i].style.backgroundColor="#fff7fb";       
-    }
-            for (let i = 0; i < reviewCard.length; i++) {
-        reviewCard[i].style.color = "#c93779";
-        reviewCard[i].style.backgroundColor="#fff";
-        reviewCard[i].style.boxShadow="0 2px 4px #c93779";       
-    }
+    const body=document.getElementById("body");
+    body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    toggleBtn.innerText = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    toggleBtn.innerText = "🌙";
+  }
+}
            
-        }
+function hamburger(){
+    const toggleMenu=document.getElementById("toggle-menu-container");
+    toggleMenu.classList.toggle("active");
+}

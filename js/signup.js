@@ -1,6 +1,10 @@
 window.onload= function(){
         const savedData = localStorage.getItem("userData");
     const formContainer=document.getElementById("form-container");
+    const localStorageTheme=localStorage.getItem("theme");
+            if (localStorageTheme === "dark"){
+                toggleTheme();
+            }
       if(savedData){
         const userData = JSON.parse(savedData);
         formContainer.innerHTML=`<div class="user-info">
@@ -80,98 +84,19 @@ function displayUserProfileAndHideForm(){
 function logOut(){
       window.location.href="login.html";
       } 
-window.onload= function(){
-            const localStorageTheme=localStorage.getItem("theme");
-            if (localStorageTheme === "dark"){
-                toggleDark();
-            }else{
-                toggleLight();
-            }
-        }
 function toggleTheme(){
             const toggleBtn=document.getElementById("toggle-btn");
-            const localStorageTheme=localStorage.getItem("theme");
-            if(localStorageTheme === "dark"){
-                toggleLight();
-                localStorage.setItem("theme","light");
-                toggleBtn.innerText="🌙";
-            }else{
-                toggleDark();
-                localStorage.setItem("theme","dark");
-                toggleBtn.innerText="☀️";
-            }
-        }
-        function toggleDark(){
-          const firstName=document.getElementById("firstname");
-          const lastName=document.getElementById("lastname");
-          const contact=document.getElementById("phone-number")
-          const age=document.getElementById("age");
-          const passContainer=document.getElementById("pass-container");
-          const body=document.getElementById("body");
-          const toggleBtn=document.getElementById("toggle-btn");
-          const link=document.getElementById("link");
-          const btn =document.getElementById("btn");
-          const navbar= document.getElementById("navbar");
-          const formContainer=document.getElementById("form-container");
-           const email1=document.getElementById("email");
-           const pass=document.getElementById("password"); 
-            document.body.style.backgroundColor="#333333";
-            body.style.color="white"; 
-            email1.style.backgroundColor="#333333";
-            email1.style.color="#fff"; 
-            pass.style.backgroundColor="#333333";
-            pass.style.color="#fff";
-            formContainer.style.backgroundColor="#262626";
-            btn.style.backgroundColor="#000000";
-            link.style.color="white";
-            navbar.style.backgroundColor="#121212";
-            toggleBtn.style.backgroundColor="#000";
-            toggleBtn.style.color="white"; 
-            passContainer.style.backgroundColor="#333333";
-            firstName.style.backgroundColor="#333333";
-            firstName.style.color="#fff";
-            lastName.style.backgroundColor="#333333";
-            lastName.style.color="#fff";
-            contact.style.backgroundColor="#333333";
-            contact.style.color="#fff";
-            age.style.backgroundColor="#333333";
-            age.style.color="#fff";
-    
-                  
-        }
-        function toggleLight(){
-          const firstName=document.getElementById("firstname");
-          const lastName=document.getElementById("lastname");
-          const contact=document.getElementById("phone-number")
-          const age=document.getElementById("age");
-         const passContainer=document.getElementById("pass-container");
-         const body=document.getElementById("body");
-          const toggleBtn=document.getElementById("toggle-btn");
-          const link=document.getElementById("link");
-          const btn =document.getElementById("btn");
-          const navbar= document.getElementById("navbar");
-          const formContainer=document.getElementById("form-container");
-          const email1=document.getElementById("email");
-           const pass=document.getElementById("password");
-            body.style.backgroundColor="#fff7fb";
-             email1.style.backgroundColor="#fff7fb";
-            pass.style.backgroundColor="#fff7fb";
-            body.style.color="black";
-            formContainer.style.backgroundColor="white";
-            navbar.style.backgroundColor="#ffbfec";
-            btn.style.backgroundColor="#cc0052";
-            link.style.color="black";
-            toggleBtn.style.color="#d85590";
-            toggleBtn.style.backgroundColor="#fff";
-            passContainer.style.backgroundColor="#fff7fb";
-            firstName.style.backgroundColor="#fff7fb";
-            firstName.style.color="#000";
-            lastName.style.backgroundColor="#fff7fb";
-            lastName.style.color="#000";
-            contact.style.backgroundColor="#fff7fb";
-            contact.style.color="#000";
-            age.style.backgroundColor="#fff7fb";
-            age.style.color="#000";
-            
-           
-        }   
+    const body=document.getElementById("body");
+    body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    toggleBtn.innerText = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    toggleBtn.innerText = "🌙";
+  }
+}
+        function hamburger(){
+          const toggleMenu=document.getElementById("toggle-menu-container");
+         toggleMenu.classList.toggle("active");
+}  
