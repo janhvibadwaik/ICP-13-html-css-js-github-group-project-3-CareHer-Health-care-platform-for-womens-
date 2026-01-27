@@ -61,6 +61,7 @@ body{
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.2);
   text-align:center;
+  margin-bottom:60px;
 }
 
 .sub{font-size:14px;opacity:.7;}
@@ -132,12 +133,18 @@ ul{text-align:left;font-size:14px;padding-left:18px;}
   color:white;
 }
 
+/* Risk result spacing */
+#resultBox{
+  margin-top:25px;
+  padding-top:15px;
+}
+
 /* ===== FOOTER ===== */
 .footer{
-  margin-top:auto;
+  margin-top:40px;
   width:100%;
   background:#ffe6f2;
-  padding:25px 20px;
+  padding:35px 20px;
 }
 .footer-content{
   max-width:1100px;
@@ -166,12 +173,12 @@ ul{text-align:left;font-size:14px;padding-left:18px;}
 }
 
 .footer-bottom{
-  margin-top:15px;
+  margin-top:18px;
   text-align:center;
   font-size:13px;
   color:#a83a6a;
   border-top:1px solid #f2b6d8;
-  padding-top:10px;
+  padding-top:12px;
 }
 
 /* ===== DARK FOOTER ===== */
@@ -184,6 +191,14 @@ body.dark .footer-bottom{border-top:1px solid #2a2a2a;}
   .footer-content{
     flex-direction:column;
     text-align:center;
+  }
+
+  .card{
+    margin-bottom:40px;
+  }
+
+  .footer{
+    margin-top:30px;
   }
 }
 </style>
@@ -207,8 +222,6 @@ body.dark .footer-bottom{border-top:1px solid #2a2a2a;}
     <button class="mid" onclick="answer(1)">➖ Sometimes</button>
     <button class="secondary" onclick="answer(0)">✖ No</button>
   </div>
-
-  <p id="feedback"></p>
 
   <div id="resultBox" class="hidden">
     <h2 id="resultTitle"></h2>
