@@ -299,6 +299,50 @@
   border: 2px solid #c93779;
   cursor: pointer;
 }
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark .navbar {
+  background-color: #121212;
+}
+
+body.dark .nav-name,
+body.dark .menu a,
+body.dark .nav-clock {
+  color: #ff9fcf;
+}
+body.dark .toggle-btn{
+  background-color: #000;
+  color: #fff;
+}
+body.dark .btn-delete{
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 2px 4px #fff;
+}
+body.dark .footer{
+  background-color: #121212;
+}
+body.dark .submit-btn{
+  background-color: #000;
+  color: #fff;
+}
+body.dark .panel{
+  background-color: #262626;
+}
+body.dark .review-card{
+  background-color:#262626 ;
+  box-shadow:0 2px 4px #fff;
+  color: #fff;
+}
+body.dark .textarea{
+  background-color: #333;
+  color: #fff;
+}
+
 @media (max-width: 768px) {
   .menu a{
     display: none;

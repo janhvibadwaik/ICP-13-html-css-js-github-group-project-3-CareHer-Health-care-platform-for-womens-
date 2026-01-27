@@ -201,6 +201,52 @@
   border: 2px solid #c93779;
   cursor: pointer;
 }
+body.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark .navbar {
+  background-color: #121212;
+}
+
+body.dark .nav-name,
+body.dark .menu a,
+body.dark .nav-clock {
+  color: #ff9fcf;
+}
+body.dark .toggle-btn{
+  background-color: #000;
+  color: #fff;
+}
+body.dark .btn-delete{
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 2px 4px #fff;
+}
+body.dark .footer{
+  background-color: #121212;
+}
+body.dark .form-container{
+  background-color: #262626;
+}
+body.dark .btn{
+  color: #000;
+}
+body.dark .password-container{
+  background-color: #333;
+}
+body.dark .form-item{
+  background-color: #333;
+  color: #fff;
+}
+body.dark #link{
+  color: #fff;
+}
+body.dark .btn{
+  background-color: #000;
+  color:#fff;
+}
 @media (max-width: 768px) {
   .menu a{
     display: none;
@@ -220,10 +266,7 @@
   .toggle-menu-container.active{
   display: flex;
 }
-}
-
-@media (max-width: 768px) {
-  .footer-content {
+.footer-content {
     flex-direction: column;
     text-align: center;
     gap: 15px;
