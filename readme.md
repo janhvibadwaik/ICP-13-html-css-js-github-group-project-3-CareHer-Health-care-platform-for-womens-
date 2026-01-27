@@ -57,23 +57,23 @@ CareHer is a responsive women-focused healthcare website built using **HTML, CSS
 ![Home Page](./images/home1.png)
 
 ### Cycle Tracker  
-![Cycle Tracker]()
+![Cycle Tracker](./images/periodtracking.png)
 
 ### BMI Calculator  
-![BMI Calculator]()
+![BMI Calculator](./images/bmicalculator.png)
 
 ### PCOD/PCOS Detection
-![PCOD/PCOS Detection]()
+![PCOD/PCOS Detection](./images/pcodpcos.png)
 
 ---
 ##  Contributors
+Developed by *Team CareHer Project*
 
 - Janhvi Badwaik. (`index.html`,`healthcheck.html`,`period.html`)
 - Akshada Sanap. (`p.html`,`pcod-risk.html`,`pcos-risk.html`)
 - Akash Lohar.  (`signup.html`,`review.html`,`exercise.html`)
 - Sarthak Ranade.(`bmi-calc`,`contact.html`)
-  
----
+
   <a href="https://github.com/janhvibadwaik/ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=janhvibadwaik/ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens" />
 </a>
