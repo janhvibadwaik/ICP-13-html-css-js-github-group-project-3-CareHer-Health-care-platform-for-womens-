@@ -61,6 +61,7 @@ body{
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.2);
   text-align:center;
+  margin-bottom:60px;
 }
 
 .sub{font-size:14px;opacity:.7;}
@@ -132,9 +133,14 @@ ul{text-align:left;font-size:14px;padding-left:18px;}
   color:white;
 }
 
+/* Risk result spacing */
+#resultBox{
+  margin-top:25px;
+  padding-top:15px;
+}
+
 /* ===== FOOTER ===== */
 .footer{
-  margin-top:auto;
   width:100%;
   background:#ffe6f2;
   padding:25px 20px;
@@ -160,31 +166,32 @@ ul{text-align:left;font-size:14px;padding-left:18px;}
 }
 .footer-center a:hover{color:#ea1068;}
 
-.footer-right{
-  font-size:14px;
-  color:#c93779;
-}
+.footer-right{font-size:14px;color:#c93779;}
 
 .footer-bottom{
-  margin-top:15px;
   text-align:center;
+  margin-top:15px;
   font-size:13px;
   color:#a83a6a;
   border-top:1px solid #f2b6d8;
   padding-top:10px;
 }
 
-/* ===== DARK FOOTER ===== */
+/* ===== DARK MODE ===== */
+body.dark .navbar{background:#121212;}
+body.dark .nav-name,
+body.dark .menu a,
+body.dark .nav-clock{color:#ff9fcf;}
+body.dark .menu a:hover{color:#ff5fa2;}
 body.dark .footer{background:#121212;}
 body.dark .footer *{color:#ff9fcf;}
 body.dark .footer-bottom{border-top:1px solid #2a2a2a;}
+body.dark .theme-toggle{background:#000;color:white;}
 
 /* ===== MOBILE ===== */
-@media(max-width:768px){
-  .footer-content{
-    flex-direction:column;
-    text-align:center;
-  }
+@media(max-width:600px){
+  .flex-box{flex-direction:column;}
+  .menu{gap:16px;}
 }
 </style>
 </head>
@@ -207,8 +214,6 @@ body.dark .footer-bottom{border-top:1px solid #2a2a2a;}
     <button class="mid" onclick="answer(1)">➖ Sometimes</button>
     <button class="secondary" onclick="answer(0)">✖ No</button>
   </div>
-
-  <p id="feedback"></p>
 
   <div id="resultBox" class="hidden">
     <h2 id="resultTitle"></h2>
